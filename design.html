@@ -35,20 +35,33 @@
   }
   .masthead .dek b { font-style: normal; }
 
-  .regions { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
-  .region {
-    border-top: 3px solid var(--c); background: #fffdf7;
-    padding: 2px 4px 3px; display: flex; justify-content: space-between; align-items: baseline;
+  /* region strip: big numbers, small labels — the "at a glance" scale of the day */
+  .regions {
+    display: grid; grid-template-columns: repeat(7, 1fr);
+    border-top: 3px solid #1b1a17; border-bottom: 1.5px solid #1b1a17;
+    background: #fffdf7;
   }
-  .region span { font-size: 8.5px; letter-spacing: .1em; font-weight: 700; color: var(--c); }
-  .region b { font-size: 12px; color: #1b1a17; }
+  .region {
+    padding: 4px 7px 5px; border-left: 1px solid #ded6c5;
+    display: flex; flex-direction: column; gap: 1px;
+  }
+  .region:first-child { border-left: 0; }
+  .region b { font-family: Georgia, "Times New Roman", serif; font-size: 28px; line-height: .88; letter-spacing: -1px; color: #1b1a17; }
+  .region span { font-size: 6.8px; letter-spacing: .14em; font-weight: 700; color: var(--c); }
   .eu { --c: #2c6a4d; } .me { --c: #b02418; } .am { --c: #1e4a74; }
   .as { --c: #9c5f16; } .af { --c: #5a3a76; } .oc { --c: #7a5230; } .wo { --c: #4a4a4a; }
 
   .leads { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
   .lead { display: flex; flex-direction: column; }
-  .lead .art { height: 104px; border: 1px solid #cfc7b6; }
+  .lead .art { height: 96px; border: 1px solid #cfc7b6; position: relative; }
   .lead .art svg { display: block; width: 100%; height: 100%; }
+  .badge {
+    position: absolute; top: 5px; right: 5px; background: #1b1a17; color: #f7f3e9;
+    padding: 3px 6px 4px; border-radius: 2px; text-align: center; line-height: 1;
+    box-shadow: 0 0 0 1px #f7f3e9;
+  }
+  .badge b { display: block; font-family: Georgia, serif; font-size: 18px; font-weight: 700; letter-spacing: -.5px; }
+  .badge i { display: block; font-style: normal; font-size: 5.2px; letter-spacing: .12em; margin-top: 1px; }
   .kicker {
     display: flex; justify-content: space-between; align-items: center;
     font-size: 8px; letter-spacing: .11em; font-weight: 700; margin: 3px 0 1px;
@@ -66,18 +79,18 @@
   .lead p { margin: 0; font-size: 9px; line-height: 1.28; color: #2b2823; }
   .src { margin-top: 3px; font-size: 7px; letter-spacing: .06em; color: #7a7264; padding-top: 2px; }
 
-  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px 9px; }
-  .card { display: grid; grid-template-columns: 54px 1fr; gap: 5px; align-items: start; }
-  .card .art { width: 54px; height: 40px; border: 1px solid #d6cfbe; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px 9px; }
+  .card { display: grid; grid-template-columns: 50px 1fr; gap: 4px; align-items: start; }
+  .card .art { width: 50px; height: 37px; border: 1px solid #d6cfbe; }
   .card .art svg { display: block; width: 100%; height: 100%; }
   .card .k { font-size: 7px; letter-spacing: .1em; font-weight: 700; color: var(--c); }
-  .card h3 { margin: 1px 0 1px; font-family: Georgia, serif; font-size: 11.5px; line-height: 1.1; font-weight: 700; }
-  .card p { margin: 0; font-size: 7.6px; line-height: 1.24; color: #33302a; }
-  .card .src { font-size: 6.5px; padding-top: 1px; }
+  .card h3 { margin: 1px 0 1px; font-family: Georgia, serif; font-size: 11px; line-height: 1.08; font-weight: 700; }
+  .card p { margin: 0; font-size: 7.3px; line-height: 1.2; color: #33302a; }
+  .card .src { font-size: 6.2px; padding-top: 1px; }
   .num {
     display: inline-block; font-family: Georgia, serif; font-weight: 700;
     background: #1b1a17; color: #f7f3e9; padding: 0 2.5px; border-radius: 2px;
-    font-size: 9px; line-height: 1.4; margin-right: 3.5px; vertical-align: 1px;
+    font-size: 8.5px; line-height: 1.4; margin-right: 3.5px; vertical-align: 1px;
   }
   .lead .num { font-size: 8px; margin-right: 4px; }
 
@@ -86,27 +99,35 @@
     margin: 0 0 2px; font-size: 9px; letter-spacing: .16em; font-weight: 700;
   }
   .briefs h4 em { font-style: normal; font-weight: 400; letter-spacing: .06em; color: #6b6257; }
-  .brief-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 12px; align-content: start; }
-  .brief { display: grid; grid-template-columns: 15px 1fr; gap: 2px; padding: 1.5px 0; border-bottom: 1px dotted #d3cbb9; }
+  .brief-cols { columns: 2; column-gap: 16px; }
+  .brief { display: grid; grid-template-columns: 16px 1fr; gap: 2px; padding: 2.5px 0; border-bottom: 1px dotted #d3cbb9; break-inside: avoid; }
   .brief .n { font-size: 7px; font-weight: 700; color: #8a8274; padding-top: 1px; }
   .brief .n::after { content: "."; }
-  .brief .t { font-size: 8.6px; line-height: 1.18; font-weight: 700; }
+  .brief .t { font-size: 8.6px; line-height: 1.2; font-weight: 700; }
   .brief .t span { font-weight: 400; color: #4a463e; }
-  .brief .s { font-size: 6.4px; letter-spacing: .05em; color: #857d6f; }
+  .brief .t i { display: none; font-style: normal; font-size: 6.3px; letter-spacing: .05em; color: #857d6f; font-weight: 400; margin-left: 4px; }
 
-  .bottom { display: grid; grid-template-columns: 1.55fr 1fr; gap: 10px; }
+  .bottom { display: grid; grid-template-columns: 1.36fr 1.04fr; gap: 10px; }
   .panel { border: 1.5px solid #1b1a17; padding: 4px 6px; background: #fffdf7; }
   .panel h5 {
     margin: 0 0 2px; font-size: 8.5px; letter-spacing: .14em; font-weight: 700;
   }
-  .datecheck p { margin: 0; font-size: 7.6px; line-height: 1.3; color: #2b2823; }
+  .datecheck { display: flex; flex-direction: column; }
+  .datecheck p { margin: 0; font-size: 7.6px; line-height: 1.34; color: #2b2823; }
   .datecheck b { font-weight: 700; }
   .datecheck ul { margin: 2px 0 0; padding-left: 11px; }
-  .datecheck li { font-size: 7.4px; line-height: 1.28; }
-  .numbers { display: grid; grid-template-columns: 1fr 1fr; gap: 1px 8px; align-content: start; }
-  .numbers div { display: flex; gap: 4px; align-items: baseline; }
-  .numbers b { font-family: Georgia, serif; font-size: 14px; line-height: 1; }
-  .numbers span { font-size: 6.8px; line-height: 1.1; color: #3b372f; }
+  .datecheck li { font-size: 7.4px; line-height: 1.34; }
+
+  /* numbered map: where the day's stories happened */
+  .map { display: flex; flex-direction: column; padding: 3px 6px 4px; }
+  .map h5 { display: flex; justify-content: space-between; align-items: baseline; }
+  .map h5 em { font-style: normal; font-weight: 400; font-size: 6.4px; letter-spacing: .07em; color: #6b6257; }
+  .world { display: block; width: 100%; height: auto; margin-top: 1px; }
+  .land path, .land polygon { fill: #e4ddcc; stroke: #bdb4a2; stroke-width: .7; stroke-linejoin: round; }
+  .dot circle { fill: var(--c); stroke: #fffdf7; stroke-width: 1.1; }
+  .dot text { fill: #f7f3e9; font-family: Georgia, serif; font-size: 5.2px; font-weight: 700; text-anchor: middle; dominant-baseline: central; }
+  .mapnote { font-size: 6.2px; line-height: 1.25; color: #6b6257; margin-top: auto; padding-top: 2px; }
+  .ocean text { fill: #b3aa98; font-size: 4.2px; letter-spacing: .14em; font-weight: 700; }
 
   .footer {
     display: flex; justify-content: space-between; align-items: center;
@@ -122,10 +143,11 @@
   .card .k { display: flex; justify-content: space-between; align-items: center; gap: 3px; }
   .card .k .chip { font-size: 5.6px; letter-spacing: .05em; padding: 0 3px; line-height: 1.4; }
   .legend {
-    margin-top: 3px; padding-top: 3px; border-top: 1px dotted #b9b1a0;
-    font-size: 6.5px; line-height: 1.35; color: #3b372f;
-    display: flex; flex-wrap: wrap; align-items: center; gap: 1px 4px;
+    margin-top: auto; padding-top: 4px; border-top: 1px dotted #b9b1a0;
+    font-size: 6.6px; line-height: 1.2; color: #3b372f;
+    display: grid; grid-template-columns: auto 1fr; gap: 2.5px 5px; align-items: center;
   }
+  .legend .note { grid-column: 1 / -1; margin-top: 2px; color: #6b6257; }
   .legend .chip { font-size: 5.6px; letter-spacing: .05em; padding: 0 3px; line-height: 1.4; }
 </style>
 </head>
@@ -143,13 +165,13 @@
   </div>
 
   <div class="regions">
-    <div class="region eu"><span>EUROPE</span><b>8</b></div>
-    <div class="region me"><span>MIDDLE EAST</span><b>8</b></div>
-    <div class="region am"><span>AMERICAS</span><b>7</b></div>
-    <div class="region as"><span>ASIA-PACIFIC</span><b>7</b></div>
-    <div class="region af"><span>AFRICA</span><b>4</b></div>
-    <div class="region oc"><span>OCEANIA</span><b>3</b></div>
-    <div class="region wo"><span>WORLD</span><b>3</b></div>
+    <div class="region eu"><b>8</b><span>EUROPE</span></div>
+    <div class="region me"><b>8</b><span>MIDDLE EAST</span></div>
+    <div class="region am"><b>7</b><span>AMERICAS</span></div>
+    <div class="region as"><b>7</b><span>ASIA-PACIFIC</span></div>
+    <div class="region af"><b>4</b><span>AFRICA</span></div>
+    <div class="region oc"><b>3</b><span>OCEANIA</span></div>
+    <div class="region wo"><b>3</b><span>WORLD</span></div>
   </div>
 
   <section class="leads">
@@ -164,7 +186,6 @@
           <rect x="222" y="14" width="7" height="52" rx="3.5" fill="#f2f0ea" stroke="#2b3a47" stroke-width="1.2"/>
           <rect x="224" y="38" width="3" height="26" fill="#b02418"/>
           <circle cx="225.5" cy="62" r="6" fill="#b02418"/>
-          <text x="240" y="30" font-family="Georgia" font-size="12" fill="#2b3a47">1.5°C</text>
           <path d="M46 78h60v-8H46z" fill="#c9b48a"/>
           <path d="M52 70h48l-6-14H58z" fill="#e0cfa8" stroke="#2b3a47" stroke-width="1"/>
           <path d="M76 56v-6M66 56v-4M86 56v-4" stroke="#2b3a47" stroke-width="1.2"/>
@@ -172,10 +193,11 @@
           <path d="M0 86h300" stroke="#2b3a47" stroke-width="1"/>
           <circle cx="150" cy="46" r="44" fill="none" stroke="#2b3a47" stroke-width=".6" stroke-dasharray="3 4"/>
         </svg>
+        <span class="badge"><b>1.5°C</b><i>TARGET</i></span>
       </div>
       <div class="kicker"><span><b class="num">1</b>WORLD · CLIMATE</span><span class="chip">CONFIRMED</span></div>
       <h2>COP31 collapses without a deal</h2>
-      <p>Antalya ran two days past its Friday deadline, then failed to adopt a text. The EU and others rejected a final draft that never mentioned fossil fuels; Guterres said he was disappointed and that the 1.5°C window is closing.</p>
+      <p>Antalya ran two days past its Friday deadline, then failed to adopt a text. The EU and others rejected a final draft that never mentioned fossil fuels; Guterres said the 1.5°C window is closing.</p>
       <div class="src">CNA · Times of Israel · Reuters · AP</div>
     </article>
 
@@ -201,10 +223,11 @@
           <path d="M128 36l10 8-13 2z" fill="#f0c04a"/>
           <circle cx="20" cy="12" r="3" fill="#f0c04a"/>
         </svg>
+        <span class="badge"><b>2</b><i>TANKERS</i></span>
       </div>
       <div class="kicker"><span><b class="num">2</b>MIDDLE EAST · WAR</span><span class="chip claimed">CLAIMED</span></div>
       <h2>Iran hits Bahrain; Hormuz standoff deepens</h2>
-      <p>A strike damaged a civilian industrial site in Bahrain, wounding two, one critically; the IRGC says it aimed at US positions. Iran's navy said on Sunday that two supertankers struck mines near Hormuz last week. Washington puts its own decision on a strike at least a week away.</p>
+      <p>A strike damaged a civilian industrial site in Bahrain, wounding two, one critically; the IRGC says it aimed at US positions. Iran's navy says two supertankers struck mines near Hormuz last week; Washington puts its own decision on a strike at least a week away.</p>
       <div class="src">Times of Israel · MEE · Ynet · Euronews</div>
     </article>
 
@@ -212,7 +235,6 @@
       <div class="art">
         <svg viewBox="0 0 300 104" preserveAspectRatio="none">
           <rect width="300" height="104" fill="#1a2438"/>
-          <circle cx="246" cy="24" r="11" fill="#e8e3d4"/>
           <path d="M0 84h300v20H0z" fill="#2b3a2f"/>
           <path d="M30 84l40-16 44 16z" fill="#3d5142"/>
           <path d="M150 84l50-22 50 22z" fill="#3d5142"/>
@@ -228,6 +250,7 @@
           <rect x="208" y="66" width="15" height="8" fill="#fff" stroke="#1a2438" stroke-width=".6"/>
           <rect x="208" y="74" width="15" height="4" fill="#b02418"/>
         </svg>
+        <span class="badge"><b>3</b><i>MISSILES</i></span>
       </div>
       <div class="kicker"><span><b class="num">3</b>EUROPE · WAR</span><span class="chip">CONFIRMED</span></div>
       <h2>Poland: the three objects were Russian missiles</h2>
@@ -465,31 +488,31 @@
     <h4>ALSO ON MONDAY <em>— 25 MORE STORIES, ALL REPORTED</em></h4>
     <div class="brief-cols">
 
-      <div class="brief"><div class="n">16</div><div><div class="t">Drone strikes hit Khartoum; UN building damaged <span>— four killed, and Sudan accuses Ethiopia of backing the RSF.</span></div><div class="s">AFRICA · Rio Times · Le Monde</div></div></div>
-      <div class="brief"><div class="n">17</div><div><div class="t">45 killed in a South Sudan raid <span>— an armed group hit Warrap state; the governor's toll is unverified.</span></div><div class="s">AFRICA · Rio Times</div></div></div>
-      <div class="brief"><div class="n">18</div><div><div class="t">Two killed in Gaza strikes <span>— Israeli fire hit north and central Gaza overnight.</span></div><div class="s">MIDDLE EAST · Middle East Eye</div></div></div>
-      <div class="brief"><div class="n">19</div><div><div class="t">Hamas executes a member for collaboration <span>— the group says he collaborated with Israel.</span></div><div class="s">MIDDLE EAST · Asharq Al-Awsat</div></div></div>
-      <div class="brief"><div class="n">20</div><div><div class="t">Houthis claim a strike on Saudi Arabia's Rabigh refinery <span>— Riyadh has not commented.</span></div><div class="s">MIDDLE EAST · Middle East Eye</div></div></div>
-      <div class="brief"><div class="n">21</div><div><div class="t">Turkey warns of a possible Israeli operation in Syria <span>— Ankara says Druze tensions could justify a move.</span></div><div class="s">MIDDLE EAST · Middle East Eye</div></div></div>
-      <div class="brief"><div class="n">22</div><div><div class="t">Thousands protest in Istanbul over a media takeover <span>— the state seized an opposition broadcaster.</span></div><div class="s">EUROPE · Le Monde</div></div></div>
-      <div class="brief"><div class="n">23</div><div><div class="t">France weighs a fiscal 'golden rule' <span>— the government may convene parliament to amend the constitution.</span></div><div class="s">EUROPE · Le Monde</div></div></div>
-      <div class="brief"><div class="n">24</div><div><div class="t">Poland: Russia twice plotted to kill a rapper <span>— the target is a Ukrainian-American musician.</span></div><div class="s">EUROPE · PBS NewsHour</div></div></div>
-      <div class="brief"><div class="n">25</div><div><div class="t">Seoul readies a stock stabilisation fund <span>— buyback rules are eased for three months.</span></div><div class="s">ASIA-PACIFIC · CNA</div></div></div>
-      <div class="brief"><div class="n">26</div><div><div class="t">Nvidia yet to answer a US probe before its 25 November deadline <span>— Bessent says the company has not replied.</span></div><div class="s">ASIA-PACIFIC · Hindustan Times · Politico</div></div></div>
-      <div class="brief"><div class="n">27</div><div><div class="t">Kim Jong Un ignores Trump's call and returns his letter <span>— Kim returned the letter, the report says.</span></div><div class="s">ASIA-PACIFIC · Dainik Bhaskar</div></div></div>
-      <div class="brief"><div class="n">28</div><div><div class="t">India and the EU to sign a trade pact in December <span>— the deal is due during Modi's visit to Europe.</span></div><div class="s">ASIA-PACIFIC · Hindustan Times</div></div></div>
-      <div class="brief"><div class="n">29</div><div><div class="t">A storm kills five in southern Brazil <span>— 265 more are hurt in Tupanciretã, Rio Grande do Sul.</span></div><div class="s">AMERICAS · CNA</div></div></div>
-      <div class="brief"><div class="n">30</div><div><div class="t">Immigration arrests delay flights in Seattle <span>— agents detained passengers at the airport.</span></div><div class="s">AMERICAS · PBS NewsHour</div></div></div>
-      <div class="brief"><div class="n">31</div><div><div class="t">US intelligence chief defends Trump's 'friend' Putin remark <span>— the director calls the line appropriate.</span></div><div class="s">AMERICAS · PBS NewsHour</div></div></div>
-      <div class="brief"><div class="n">32</div><div><div class="t">1,500 Jewish teenagers rally at the Eiffel Tower <span>— they came from 30 countries against antisemitism.</span></div><div class="s">EUROPE · World Israel News</div></div></div>
-      <div class="brief"><div class="n">33</div><div><div class="t">Settler arson investigated in four West Bank villages <span>— cars and homes burned overnight.</span></div><div class="s">MIDDLE EAST · SCMP</div></div></div>
-      <div class="brief"><div class="n">34</div><div><div class="t">A 13-year-old shot dead in East Jerusalem <span>— a suspect was arrested after a manhunt.</span></div><div class="s">MIDDLE EAST · Ynet</div></div></div>
-      <div class="brief"><div class="n">35</div><div><div class="t">Europe's cautious optimism on US security guarantees <span>— the US draft draws a guarded welcome.</span></div><div class="s">EUROPE · Novaya Gazeta Europe</div></div></div>
-      <div class="brief"><div class="n">36</div><div><div class="t">Trump threatens strikes in the new year <span>— he says ships running the blockade will be sunk.</span></div><div class="s">AMERICAS · World Israel News</div></div></div>
-      <div class="brief"><div class="n">37</div><div><div class="t">Verstappen wins a wild Las Vegas Grand Prix <span>— 35 lead changes, and Ferrari's Hamilton and Leclerc collide again.</span></div><div class="s">WORLD · SPORT · BBC Sport · Sky Sports</div></div></div>
-      <div class="brief"><div class="n">38</div><div><div class="t">WA to make coercive control a stand-alone crime <span>— legislation promised for 2027; stalking penalties also rise.</span></div><div class="s">OCEANIA · ABC · WA Government</div></div></div>
-      <div class="brief"><div class="n">39</div><div><div class="t">Burke slams One Nation's refugee plan <span>— cutting the intake from 20,000 to 2,000 would invite people-smuggling, he says.</span></div><div class="s">OCEANIA · SMH · AAP</div></div></div>
-      <div class="brief"><div class="n">40</div><div><div class="t">Labor's last sitting week of the year <span>— the PM admits talks are needed on key bills.</span></div><div class="s">OCEANIA · SBS</div></div></div>
+      <div class="brief"><div class="n">16</div><div class="t">Drone strikes hit Khartoum; UN building damaged <span>— four killed, and Sudan accuses Ethiopia of backing the RSF.</span> <i>AFRICA · Rio Times · Le Monde</i></div></div>
+      <div class="brief"><div class="n">17</div><div class="t">45 killed in a South Sudan raid <span>— an armed group hit Warrap state; the governor's toll is unverified.</span> <i>AFRICA · Rio Times</i></div></div>
+      <div class="brief"><div class="n">18</div><div class="t">Two killed in Gaza strikes <span>— Israeli fire hit north and central Gaza overnight.</span> <i>MIDDLE EAST · Middle East Eye</i></div></div>
+      <div class="brief"><div class="n">19</div><div class="t">Hamas executes a member for collaboration <span>— the group says he collaborated with Israel.</span> <i>MIDDLE EAST · Asharq Al-Awsat</i></div></div>
+      <div class="brief"><div class="n">20</div><div class="t">Houthis claim a strike on Saudi Arabia's Rabigh refinery <span>— Riyadh has not commented.</span> <i>MIDDLE EAST · Middle East Eye</i></div></div>
+      <div class="brief"><div class="n">21</div><div class="t">Turkey warns of a possible Israeli operation in Syria <span>— Ankara says Druze tensions could justify a move.</span> <i>MIDDLE EAST · Middle East Eye</i></div></div>
+      <div class="brief"><div class="n">22</div><div class="t">Thousands protest in Istanbul over a media takeover <span>— the state seized an opposition broadcaster.</span> <i>EUROPE · Le Monde</i></div></div>
+      <div class="brief"><div class="n">23</div><div class="t">France weighs a fiscal 'golden rule' <span>— the government may convene parliament to amend the constitution.</span> <i>EUROPE · Le Monde</i></div></div>
+      <div class="brief"><div class="n">24</div><div class="t">Poland: Russia twice plotted to kill a rapper <span>— the target is a Ukrainian-American musician.</span> <i>EUROPE · PBS NewsHour</i></div></div>
+      <div class="brief"><div class="n">25</div><div class="t">Seoul readies a stock stabilisation fund <span>— buyback rules are eased for three months.</span> <i>ASIA-PACIFIC · CNA</i></div></div>
+      <div class="brief"><div class="n">26</div><div class="t">Nvidia yet to answer a US probe before its 25 November deadline <span>— Bessent says the company has not replied.</span> <i>ASIA-PACIFIC · Hindustan Times · Politico</i></div></div>
+      <div class="brief"><div class="n">27</div><div class="t">Kim Jong Un ignores Trump's call and returns his letter <span>— Kim returned the letter, the report says.</span> <i>ASIA-PACIFIC · Dainik Bhaskar</i></div></div>
+      <div class="brief"><div class="n">28</div><div class="t">India and the EU to sign a trade pact in December <span>— the deal is due during Modi's visit to Europe.</span> <i>ASIA-PACIFIC · Hindustan Times</i></div></div>
+      <div class="brief"><div class="n">29</div><div class="t">A storm kills five in southern Brazil <span>— 265 more are hurt in Tupanciretã, Rio Grande do Sul.</span> <i>AMERICAS · CNA</i></div></div>
+      <div class="brief"><div class="n">30</div><div class="t">Immigration arrests delay flights in Seattle <span>— agents detained passengers at the airport.</span> <i>AMERICAS · PBS NewsHour</i></div></div>
+      <div class="brief"><div class="n">31</div><div class="t">US intelligence chief defends Trump's 'friend' Putin remark <span>— the director calls the line appropriate.</span> <i>AMERICAS · PBS NewsHour</i></div></div>
+      <div class="brief"><div class="n">32</div><div class="t">1,500 Jewish teenagers rally at the Eiffel Tower <span>— they came from 30 countries against antisemitism.</span> <i>EUROPE · World Israel News</i></div></div>
+      <div class="brief"><div class="n">33</div><div class="t">Settler arson investigated in four West Bank villages <span>— cars and homes burned overnight.</span> <i>MIDDLE EAST · SCMP</i></div></div>
+      <div class="brief"><div class="n">34</div><div class="t">A 13-year-old shot dead in East Jerusalem <span>— a suspect was arrested after a manhunt.</span> <i>MIDDLE EAST · Ynet</i></div></div>
+      <div class="brief"><div class="n">35</div><div class="t">Europe's cautious optimism on US security guarantees <span>— the US draft draws a guarded welcome.</span> <i>EUROPE · Novaya Gazeta Europe</i></div></div>
+      <div class="brief"><div class="n">36</div><div class="t">Trump threatens strikes in the new year <span>— he says ships running the blockade will be sunk.</span> <i>AMERICAS · World Israel News</i></div></div>
+      <div class="brief"><div class="n">37</div><div class="t">Verstappen wins a wild Las Vegas Grand Prix <span>— 35 lead changes, and Ferrari's Hamilton and Leclerc collide again.</span> <i>WORLD · SPORT · BBC Sport · Sky Sports</i></div></div>
+      <div class="brief"><div class="n">38</div><div class="t">WA to make coercive control a stand-alone crime <span>— legislation promised for 2027; stalking penalties also rise.</span> <i>OCEANIA · ABC · WA Government</i></div></div>
+      <div class="brief"><div class="n">39</div><div class="t">Burke slams One Nation's refugee plan <span>— cutting the intake from 20,000 to 2,000 would invite people-smuggling, he says.</span> <i>OCEANIA · SMH · AAP</i></div></div>
+      <div class="brief"><div class="n">40</div><div class="t">Labor's last sitting week of the year <span>— the PM admits talks are needed on key bills.</span></div></div>
 
     </div>
   </section>
@@ -503,18 +526,60 @@
         <li>The US midterm election was held on <b>3 November</b>; today's story is the House tally.</li>
         <li>Mexico's capture of 'El Chapo Isidro' broke on <b>20–21 November</b> and is not carried here.</li>
       </ul>
-      <div class="legend"><span class="chip">CONFIRMED</span>official · <span class="chip reported">REPORTED</span>one wire · <span class="chip claimed">CLAIMED</span>party claim · <span class="chip pending">PENDING</span>open · artwork drawn here, not photographed</div>
+      <div class="legend">
+        <span class="chip">CONFIRMED</span><span>official statement</span>
+        <span class="chip reported">REPORTED</span><span>single wire report</span>
+        <span class="chip claimed">CLAIMED</span><span>party claim</span>
+        <span class="chip pending">PENDING</span><span>still open at press time</span>
+        <span class="note">Artwork is drawn here, not photographed.</span>
+      </div>
     </div>
-    <div class="panel numbers">
-      <h5 style="grid-column:1/-1">THE DAY IN NUMBERS</h5>
-      <div><b>258</b><span>House seats won by the Democrats</span></div>
-      <div><b>80%</b><span>China's new margin floor</span></div>
-      <div><b>1,000+</b><span>Delta flights delayed at Atlanta</span></div>
-      <div><b>17</b><span>deaths from fake liquor in India</span></div>
-      <div><b>9</b><span>killed in the Kyiv region</span></div>
-      <div><b>45</b><span>killed in the South Sudan raid</span></div>
-      <div><b>265</b><span>hurt by the storm in southern Brazil</span></div>
-      <div><b>90%</b><span>refugee cut One Nation proposes</span></div>
+    <div class="panel map">
+      <h5><span>WHERE IT HAPPENED</span><em>14 OF 40 STORIES</em></h5>
+      <svg class="world" viewBox="0 0 420 118" role="img" aria-label="Simplified world map with fourteen numbered story locations">
+        <g class="land" transform="translate(0,-5.9) scale(1,1.1332)">
+          <path d="M14 11.3 L35 6.9 L70 6.9 L93 4.3 L117 4.3 L140 8.7 L149 13.9 L146 24.3 L134 28.6 L128 31.2 L123 37.3 L115.5 46 L105 42.5 L96.8 45.1 L87.5 50.3 L75.8 41.6 L64.2 33 L65.3 26 L52.5 17.4 L35 15.6 L16.3 15.6 Z"/>
+          <path d="M157 15 L175 6 L187 2.5 L183 15 L172 20 L160 18 Z"/>
+          <path d="M112 46.5 L118 45 L122 46 L117 47.5 Z"/>
+          <path d="M192 11 L196 10 L197 13 L193 14 Z"/>
+          <path d="M116.7 60.7 L128.3 58.1 L140 61.6 L151.7 67.7 L169.2 72 L165.8 80.7 L154.2 89.4 L142.5 98 L128.3 106.7 L122.5 113.6 L126.7 102.4 L129.2 85 L119.2 72 Z"/>
+          <path d="M199.5 40.5 L205 38.5 L213.5 36.8 L221.7 36.8 L233.3 40.5 L245 41.2 L248.5 42.5 L250.8 47.7 L260.2 57.3 L269.5 58.1 L257.8 69.4 L250.8 78.1 L248.5 85 L239.2 97.2 L231 97.2 L224 87.7 L222.8 78.1 L219.3 65.1 L207.6 63.3 L200.7 63.3 L190.2 54.7 L191.3 47.7 Z"/>
+          <path d="M203 36.5 L199.5 30.5 L207.6 27.8 L205.3 26 L210 24.3 L214.7 22.6 L219.3 19.1 L217 17.4 L231 6.9 L248.5 7.8 L280 5.2 L291.7 5.2 L326.7 1.7 L408.3 10.4 L396.7 17.4 L379.2 20 L375.7 26.4 L359.3 34.7 L352.3 39.9 L343 48.6 L336 57.3 L330.2 65.1 L317.3 50.3 L309.2 54.7 L299.8 60.7 L294 50.3 L285.8 46.8 L276.5 46 L275.3 45.1 L277.7 48.6 L268.3 54.7 L260.2 56.4 L249.7 42.5 L250.8 39 L252 36.4 L240.3 34.7 L235.7 35.6 L227.5 33 L228.7 34.7 L224 31.2 L214.7 30.4 L210 33.8 Z"/>
+          <path d="M202 22 L205.5 16.5 L208.5 19.5 L207 23 Z"/>
+          <path d="M196 19 L198.5 18 L199 21 L197 21.5 Z"/>
+          <path d="M264 79 L267 85 L262 89 L261 82 Z"/>
+          <path d="M365 38 L373 33 L377 30 L371 36 Z"/>
+          <path d="M351 46.5 L353 46 L353.5 48.5 L351.5 49 Z"/>
+          <path d="M351 57 L354 56.5 L355 59.5 L352 60 Z"/>
+          <path d="M303 60 L305 59.5 L305.5 62 L303.5 62.5 Z"/>
+          <path d="M322 63 L332 72 L328 73 L319 64 Z"/>
+          <path d="M332 74 L343 75 L343 76 L333 76 Z"/>
+          <path d="M337 67 L347 70 L345 74 L336 70 Z"/>
+          <path d="M362 69 L384 74 L383 76 L361 71 Z"/>
+          <path d="M342 87 L362 78 L379 81 L388 91 L380 101 L362 95 L344 97 Z"/>
+          <path d="M411 104 L413 101 L408 107 Z"/>
+        </g>
+        <g class="ocean">
+          <text x="160" y="60">ATLANTIC</text>
+          <text x="22" y="85">PACIFIC</text>
+          <text x="280" y="88">INDIAN OCEAN</text>
+        </g>
+        <g class="dot wo"><circle cx="76" cy="35" r="4.6"/><text x="76" y="35">37</text></g>
+        <g class="dot am"><circle cx="67" cy="24" r="4.6"/><text x="67" y="24">30</text></g>
+        <g class="dot am"><circle cx="120" cy="33" r="4.6"/><text x="120" y="33">5</text></g>
+        <g class="dot am"><circle cx="149" cy="99" r="4.6"/><text x="149" y="99">29</text></g>
+        <g class="dot me"><circle cx="233" cy="39" r="4.6"/><text x="233" y="39">7</text></g>
+        <g class="dot af"><circle cx="253" cy="72" r="4.6"/><text x="253" y="72">8</text></g>
+        <g class="dot af"><circle cx="248" cy="55" r="4.6"/><text x="248" y="55">16</text></g>
+        <g class="dot eu"><circle cx="234" cy="18" r="4.6"/><text x="234" y="18">3</text></g>
+        <g class="dot eu"><circle cx="246" cy="20" r="4.6"/><text x="246" y="20">4</text></g>
+        <g class="dot wo"><circle cx="244" cy="35" r="4.6"/><text x="244" y="35">1</text></g>
+        <g class="dot me"><circle cx="269" cy="45" r="4.6"/><text x="269" y="45">2</text></g>
+        <g class="dot as"><circle cx="299" cy="42" r="4.6"/><text x="299" y="42">14</text></g>
+        <g class="dot as"><circle cx="352" cy="40" r="4.6"/><text x="352" y="40">12</text></g>
+        <g class="dot oc"><circle cx="345" cy="104" r="4.6"/><text x="345" y="104">38</text></g>
+      </svg>
+      <div class="mapnote">Dots mark where the numbered stories happened; positions are approximate.</div>
     </div>
   </div>
 
