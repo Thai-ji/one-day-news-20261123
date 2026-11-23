@@ -58,14 +58,19 @@
      as 8+8+7+7+4+3+3, so a reader can add them to 40 and count seven regions. The digits are
      white because the cell is dark grey — every region colour except the beige falls below 4.5:1
      on #4a4a4a (measured 2.2–3.6:1), so the region colour is kept as the 2px block under each
-     number instead, in the same order the map dots use. Absolute, so it cannot move the 46px band. */
-  .fig .dist { position: absolute; left: 33px; right: 8px; top: 2.5px;
-    display: flex; align-items: flex-start; gap: 2px;
+     number instead, in the same order the map dots use. Absolute, so it cannot move the 46px band.
+     Type: 24px with zero tracking and a 5px gap. 28px with -1.1px tracking left the digits 0.9px
+     apart, which reads as one seven-digit number; 24px is the size the four story figures run at.
+     Scaled to the 640 width a thumbnail is read at, the six gaps measure 4–5 blank pixel columns
+     each, so each digit stays countable. The band's 7 digits end at 338.84 against the cell's
+     343.66 right edge — inside the cell, no overlap with US HOUSE SEATS. */
+  .fig .dist { position: absolute; left: 27px; right: 3px; top: 2.5px;
+    display: flex; align-items: flex-start; gap: 5px;
     border-left: 2px solid rgba(255,255,255,.55); padding-left: 4px; }
   .fig .dist i {
     display: flex; flex-direction: column; align-items: center; gap: 0;
-    font-style: normal; font-weight: 700; font-size: 28px; line-height: 1;
-    letter-spacing: -1.1px; color: #fffdf7;
+    font-style: normal; font-weight: 700; font-size: 24px; line-height: 1;
+    letter-spacing: 0; color: #fffdf7;
   }
   .fig .dist i::after { content: ""; width: 12px; height: 2px; background: var(--dc); margin-top: 1px; }
   .fig .dist .d1 { --dc: #6fa287; }
