@@ -25,10 +25,10 @@ Node.js 22.18 or later runs the TypeScript directly.
 ## Stories
 
 COP31 climate talks collapse in Antalya · Iran strikes a Bahrain industrial site while the Hormuz
-standoff continues · Poland confirms three fallen objects were Russian cruise missiles · a Russian
+standoff continues · the US sets Kyiv a January deadline for a peace deal · a Russian
 warship is damaged in Benghazi · Democrats take the US House · Netanyahu weighs a strike on Iran ·
 Kenya and DR Congo restore diplomatic ties · India and China hold ten days of border talks · Delta
-delays 681 flights in Atlanta · a Russian cargo ship burns off Finland · China cuts the margin
+delays over 1,000 flights in Atlanta · a Russian cargo ship burns off Finland · China cuts the margin
 requirement to 80% · a record El Niño strengthens · India's fake-liquor deaths.
 
 ## License
