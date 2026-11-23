@@ -13,7 +13,7 @@
     color: #1b1a17; -webkit-font-smoothing: antialiased;
   }
   .page {
-    width: 1024px; height: 1024px; padding: 12px 14px 10px;
+    width: 1024px; height: 1024px; padding: 9px 14px 7px;
     display: flex; flex-direction: column; gap: 6px;
     background: #f7f3e9;
   }
@@ -28,7 +28,7 @@
   .masthead { text-align: center; padding: 1px 0 0; }
   .masthead h1 {
     margin: 0; font-family: Georgia, "Times New Roman", serif;
-    font-size: 58px; line-height: 1.0; letter-spacing: -1.4px; font-weight: 700;
+    font-size: 52px; line-height: 1.0; letter-spacing: -1.4px; font-weight: 700;
   }
 
   /* the narrow facts band under the masthead: breadth claim left, scope right */
@@ -54,7 +54,7 @@
   /* first row: three illustrated leads + the day in numbers */
   .row1 { display: grid; grid-template-columns: 1fr 1fr 1fr 152px; gap: 8px; }
   .lead { display: flex; flex-direction: column; min-width: 0; }
-  .lead .art { height: 148px; border: 1px solid #cfc7b6; position: relative; }
+  .lead .art { height: 136px; border: 1px solid #cfc7b6; position: relative; }
   .lead.wo .art { background: #c3b18c; }
   .lead.me .art { background: #0d1f2e; }
   .lead.eu .art { background: #2b3a2f; }
@@ -109,7 +109,7 @@
   /* rows 2–3: ten small picture cards, five across */
   .cards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 7px; }
   .card { display: flex; flex-direction: column; min-width: 0; }
-  .card .art { height: 54px; border: 1px solid #d6cfbe; position: relative; }
+  .card .art { height: 48px; border: 1px solid #d6cfbe; position: relative; }
   .card .art svg { display: block; width: 100%; height: 100%; }
   .card .num {
     position: absolute; left: 4px; top: 4px; z-index: 2;
@@ -121,32 +121,32 @@
   .card .k { display: flex; justify-content: space-between; align-items: center; gap: 3px;
     font-size: 7px; letter-spacing: .09em; font-weight: 700; color: var(--c); margin: 2px 0 1px; }
   .card .k .chip { font-size: 7px; letter-spacing: .02em; padding: 0 3px; height: 10px; line-height: 10px; border-radius: 1.5px; }
-  .card h3 { margin: 0 0 1px; font-family: Georgia, serif; font-size: 16px; line-height: 1.04; font-weight: 700; }
-  .card p { margin: 0; font-size: 8.6px; line-height: 1.18; color: #33302a; }
+  .card h3 { margin: 0 0 1px; font-family: Georgia, serif; font-size: 15px; line-height: 1.04; font-weight: 700; }
+  .card p { margin: 0; font-size: 8.2px; line-height: 1.16; color: #33302a; }
   .card .src { font-size: 6.4px; padding-top: 1px; }
 
   /* ALSO: twelve one-liners in three columns */
-  .also { border-top: 2px solid #1b1a17; padding-top: 3px; }
-  .also h4 { margin: 0 0 3px; font-size: 9.5px; letter-spacing: .16em; font-weight: 700; }
+  .also { border-top: 2px solid #1b1a17; padding-top: 2px; }
+  .also h4 { margin: 0 0 2px; font-size: 9px; letter-spacing: .16em; font-weight: 700; }
   .also h4 em { font-style: normal; font-weight: 400; letter-spacing: .06em; color: #6b6257; }
-  .also-cols { columns: 3; column-gap: 15px; }
-  .ab { display: grid; grid-template-columns: 15px 1fr; gap: 3px; padding: 2.4px 0;
+  .also-cols { columns: 3; column-gap: 12px; }
+  .ab { display: grid; grid-template-columns: 14px 1fr; gap: 2px; padding: 1.35px 0;
     border-bottom: 1px dotted #d3cbb9; break-inside: avoid; }
-  .ab .n { font-size: 7.5px; font-weight: 700; color: #8a8274; text-align: right; padding-top: 1px; }
+  .ab .n { font-size: 7px; font-weight: 700; color: #8a8274; text-align: right; padding-top: 1px; }
   .ab .n::after { content: "."; }
-  .ab .t { font-size: 9.5px; line-height: 1.16; font-weight: 700; }
-  .ab .t i { display: block; font-style: normal; font-size: 6.6px; letter-spacing: .05em; color: #857d6f; font-weight: 400; margin-top: 1px; }
+  .ab .t { font-size: 8.6px; line-height: 1.13; font-weight: 700; }
+  .ab .t i { display: block; font-style: normal; font-size: 5.9px; letter-spacing: .04em; color: #857d6f; font-weight: 400; margin-top: .5px; }
 
   .bottom { display: grid; grid-template-columns: 1.55fr .95fr; gap: 10px; }
   .panel { border: 1.5px solid #1b1a17; padding: 4px 7px 5px; background: #fffdf7; }
   .panel h5 { margin: 0 0 1px; font-size: 8.5px; letter-spacing: .14em; font-weight: 700; }
-  .datecheck p { margin: 0; font-size: 8.6px; line-height: 1.24; color: #2b2823; }
+  .datecheck p { margin: 0; font-size: 8.2px; line-height: 1.22; color: #2b2823; }
   .datecheck b { font-weight: 700; color: #1b1a17; }
   .datecheck ul { margin: 1px 0 0; padding-left: 11px; }
-  .datecheck li { font-size: 9.6px; line-height: 1.24; }
+  .datecheck li { font-size: 9px; line-height: 1.22; }
   .legend {
-    margin-top: 3px; padding-top: 2px; border-top: 1px dotted #b9b1a0;
-    font-size: 7.6px; line-height: 1.12; color: #3b372f;
+    margin-top: 2px; padding-top: 2px; border-top: 1px dotted #b9b1a0;
+    font-size: 7.1px; line-height: 1.1; color: #3b372f;
     display: grid; grid-template-columns: repeat(2, auto 1fr); gap: 1.5px 6px; align-items: center;
   }
   .legend .note { grid-column: 1 / -1; margin-top: 1px; color: #6b6257; }
@@ -184,9 +184,9 @@
   </div>
 
   <div class="band">
-    <span>25 STORIES &middot; 7 REGIONS</span>
+    <span>40 STORIES &middot; 7 REGIONS</span>
     <span class="regions">
-      <b class="eu">EU 6</b><b class="me">ME 4</b><b class="am">AM 4</b><b class="as">AS 5</b><b class="af">AF 3</b><b class="oc">OC 1</b><b class="wd">WD 2</b>
+      <b class="eu">EU 10</b><b class="me">ME 5</b><b class="am">AM 5</b><b class="as">AS 8</b><b class="af">AF 3</b><b class="oc">OC 2</b><b class="wd">WD 7</b>
     </span>
     <span class="scope">UTC DAY &middot; TO 23:59</span>
   </div>
@@ -288,12 +288,12 @@
 
     <div class="nums">
       <h5>THE DAY IN NUMBERS</h5>
-      <div class="num-row"><b>258</b><span>US House seats won by Democrats</span></div>
-      <div class="num-row"><b>9</b><span>killed in the Kyiv region</span></div>
-      <div class="num-row"><b>1,000+</b><span>Delta flights delayed</span></div>
-      <div class="num-row"><b>17</b><span>dead from fake liquor in India</span></div>
-      <div class="num-row"><b>80%</b><span>China's new margin floor</span></div>
-      <div class="num-row"><b>1.5&deg;C</b><span>the window Guterres says is closing</span></div>
+      <div class="num-row"><b>258</b><span>SEATS</span></div>
+      <div class="num-row"><b>9</b><span>KYIV DEAD</span></div>
+      <div class="num-row"><b>1,000+</b><span>FLIGHTS</span></div>
+      <div class="num-row"><b>17</b><span>LIQUOR DEAD</span></div>
+      <div class="num-row"><b>80%</b><span>MARGIN FLOOR</span></div>
+      <div class="num-row"><b>1.5&deg;C</b><span>WINDOW</span></div>
     </div>
 
   </div>
@@ -493,7 +493,7 @@
   </section>
 
   <section class="also">
-    <h4>ALSO ON MONDAY <em>&mdash; 12 MORE STORIES, ALL FROM THIS DAY</em></h4>
+    <h4>ALSO ON MONDAY <em>&mdash; 27 MORE STORIES, ALL FROM THIS DAY</em></h4>
     <div class="also-cols">
       <div class="ab"><div class="n">14</div><div class="t">Fake liquor kills 17 in India <i>ASIA-PACIFIC &middot; The Hindu &middot; Hindustan Times</i></div></div>
       <div class="ab"><div class="n">15</div><div class="t">Drone strikes hit Khartoum; UN building damaged <i>AFRICA &middot; Rio Times &middot; Le Monde</i></div></div>
@@ -507,6 +507,21 @@
       <div class="ab"><div class="n">23</div><div class="t">A storm kills five in southern Brazil <i>AMERICAS &middot; CNA</i></div></div>
       <div class="ab"><div class="n">24</div><div class="t">Verstappen wins a wild Las Vegas Grand Prix <i>WORLD &middot; SPORT &middot; BBC Sport &middot; Sky Sports</i></div></div>
       <div class="ab"><div class="n">25</div><div class="t">WA to make coercive control a stand-alone crime <i>OCEANIA &middot; ABC &middot; WA Government</i></div></div>
+      <div class="ab"><div class="n">26</div><div class="t">Seoul halts program trading as the AI sell-off reaches Asia <i>ASIA-PACIFIC &middot; Reuters &middot; CNA</i></div></div>
+      <div class="ab"><div class="n">27</div><div class="t">NATO to meet after Russian missiles cross into Poland <i>EUROPE &middot; AP &middot; PBS NewsHour</i></div></div>
+      <div class="ab"><div class="n">28</div><div class="t">Boy pulled alive from the Dymer rubble <i>EUROPE &middot; AP &middot; BBC</i></div></div>
+      <div class="ab"><div class="n">29</div><div class="t">Sixth tanker left ablaze near Hormuz <i>MIDDLE EAST &middot; Reuters</i></div></div>
+      <div class="ab"><div class="n">30</div><div class="t">UK and EU reach a Brexit reset deal <i>EUROPE &middot; BBC &middot; The Guardian</i></div></div>
+      <div class="ab"><div class="n">31</div><div class="t">Alcaraz reaches the ATP Finals semis <i>WORLD &middot; SPORT &middot; ATP</i></div></div>
+      <div class="ab"><div class="n">32</div><div class="t">Bitcoin bounces above $61,000 <i>WORLD &middot; MARKETS &middot; CNBC</i></div></div>
+      <div class="ab"><div class="n">33</div><div class="t">Nepal PM holds talks with Modi <i>ASIA-PACIFIC &middot; IANS</i></div></div>
+      <div class="ab"><div class="n">34</div><div class="t">Java factory fire: 24 body bags recovered <i>ASIA-PACIFIC &middot; AP &middot; Jakarta Post</i></div></div>
+      <div class="ab"><div class="n">35</div><div class="t">M6.5 quake strikes the Vanuatu region <i>OCEANIA &middot; USGS &middot; RNZ</i></div></div>
+      <div class="ab"><div class="n">36</div><div class="t">UK to host the 2035 Women's World Cup <i>WORLD &middot; SPORT &middot; BBC</i></div></div>
+      <div class="ab"><div class="n">37</div><div class="t">Nvidia row deepens over chip network <i>AMERICAS &middot; Reuters</i></div></div>
+      <div class="ab"><div class="n">38</div><div class="t">BepiColombo enters orbit at Mercury <i>WORLD &middot; SCIENCE &middot; ESA &middot; CNN</i></div></div>
+      <div class="ab"><div class="n">39</div><div class="t">Thousands march in Lisbon over costs <i>EUROPE &middot; Le Monde</i></div></div>
+      <div class="ab"><div class="n">40</div><div class="t">AI rout drags Wall Street into a correction <i>AMERICAS &middot; MARKETS &middot; Reuters</i></div></div>
     </div>
   </section>
 
