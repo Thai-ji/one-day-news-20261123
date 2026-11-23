@@ -35,19 +35,21 @@
   }
   .masthead .dek b { font-style: normal; }
 
-  /* region strip: big numbers, small labels — the "at a glance" scale of the day */
-  .regions {
-    display: grid; grid-template-columns: repeat(7, 1fr);
+  /* hard-figures strip: six figures, each one already printed in a story below (see HTML comments).
+     46px tall: 3+1.5 borders leave 41.5px, and 32px number + 7px label fit on one line each. */
+  .figs {
+    display: grid; grid-template-columns: repeat(6, 1fr);
     border-top: 3px solid #1b1a17; border-bottom: 1.5px solid #1b1a17;
-    background: #fffdf7;
+    height: 46px; background: #fffdf7;
   }
-  .region {
-    padding: 4px 7px 5px; border-left: 1px solid #ded6c5;
-    display: flex; flex-direction: column; gap: 1px;
+  .fig {
+    padding: 0 8px; display: flex; flex-direction: column;
+    justify-content: center; gap: 0; background: var(--c); color: #fffdf7;
+    border-left: 1px solid rgba(255,255,255,.28);
   }
-  .region:first-child { border-left: 0; }
-  .region b { font-family: Georgia, "Times New Roman", serif; font-size: 36px; line-height: .88; letter-spacing: -1px; color: #1b1a17; }
-  .region span { font-size: 6.8px; letter-spacing: .14em; font-weight: 700; color: var(--c); }
+  .fig:first-child { border-left: 0; }
+  .fig b { font-family: Georgia, "Times New Roman", serif; font-size: 32px; line-height: 1; letter-spacing: -1px; }
+  .fig span { font-size: 7px; line-height: 1.1; letter-spacing: .12em; font-weight: 700; }
   .eu { --c: #2c6a4d; } .me { --c: #b02418; } .am { --c: #1e4a74; }
   .as { --c: #9c5f16; } .af { --c: #5a3a76; } .oc { --c: #7a5230; } .wo { --c: #4a4a4a; }
 
@@ -92,9 +94,16 @@
   .src { margin-top: 3px; font-size: 7px; letter-spacing: .06em; color: #7a7264; padding-top: 2px; }
 
   .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px 9px; }
-  .card { display: grid; grid-template-columns: 58px 1fr; gap: 4px; align-items: start; }
+  .card { display: grid; grid-template-columns: 58px 1fr; gap: 4px; align-items: start; position: relative; }
   .card .art { width: 58px; height: 43px; border: 1px solid #d6cfbe; }
   .card .art svg { display: block; width: 100%; height: 100%; }
+  /* the sequence number rides on the thumbnail's top-left corner: an 18px solid tag, out of the flow */
+  .card .num {
+    position: absolute; left: 0; top: 0; z-index: 2;
+    font-size: 11px; line-height: 18px; height: 18px; min-width: 18px;
+    padding: 0 3px; margin: 0; border-radius: 2px; vertical-align: 0; text-align: center;
+    box-shadow: 0 0 0 1px #f7f3e9;
+  }
   .card .k { font-size: 7px; letter-spacing: .1em; font-weight: 700; color: var(--c); }
   .card h3 { margin: 1px 0 1px; font-family: Georgia, serif; font-size: 11px; line-height: 1.08; font-weight: 700; }
   .card p { margin: 0; font-size: 8.6px; line-height: 1.2; color: #33302a; }
@@ -112,23 +121,28 @@
   }
   .briefs h4 em { font-style: normal; font-weight: 400; letter-spacing: .06em; color: #6b6257; }
   .brief-cols { columns: 2; column-gap: 16px; }
-  .brief { display: grid; grid-template-columns: 16px 1fr; gap: 2px; padding: 2.5px 0; border-bottom: 1px dotted #d3cbb9; break-inside: avoid; }
+  .brief { display: grid; grid-template-columns: 16px 1fr; gap: 2px; padding: 2.2px 0; border-bottom: 1px dotted #d3cbb9; break-inside: avoid; }
   .brief .n { font-size: 7px; font-weight: 700; color: #8a8274; padding-top: 1px; }
   .brief .n::after { content: "."; }
   .brief .t { font-size: 9px; line-height: 1.2; font-weight: 700; }
+  /* the first rendered line is set heavy, so a brief reads as a dark run then light: a bold/regular
+     rhythm across the columns instead of one flat block (no markup and no height change) */
+  .brief .t::first-line { font-weight: 700; }
   .brief .t span { font-weight: 400; color: #4a463e; }
   .brief .t i { display: none; font-style: normal; font-size: 6.3px; letter-spacing: .05em; color: #857d6f; font-weight: 400; margin-left: 4px; }
 
   .bottom { display: grid; grid-template-columns: 1.50fr .90fr; gap: 10px; }
   .panel { border: 1.5px solid #1b1a17; padding: 4px 6px; background: #fffdf7; }
   .panel h5 {
-    margin: 0 0 2px; font-size: 8.5px; letter-spacing: .14em; font-weight: 700;
+    margin: 0 0 1px; font-size: 8.5px; letter-spacing: .14em; font-weight: 700;
   }
-  .datecheck { display: flex; flex-direction: column; }
-  .datecheck p { margin: 0; font-size: 7.6px; line-height: 1.34; color: #2b2823; }
-  .datecheck b { font-weight: 700; }
-  .datecheck ul { margin: 2px 0 0; padding-left: 11px; }
-  .datecheck li { font-size: 7.4px; line-height: 1.34; }
+  /* DATE CHECK: the three "left out as earlier-day news" lines are the proof we are not rewriting
+     yesterday, so they run at 8.5px with the dates in solid black; the panel pays for it with its own padding */
+  .datecheck { display: flex; flex-direction: column; padding: 2px 6px 3px; }
+  .datecheck p { margin: 0; font-size: 7.6px; line-height: 1.26; color: #2b2823; }
+  .datecheck b { font-weight: 700; color: #1b1a17; }
+  .datecheck ul { margin: 1px 0 0; padding-left: 11px; }
+  .datecheck li { font-size: 8.5px; line-height: 1.28; }
 
   /* numbered map: where the day's stories happened */
   .map { display: flex; flex-direction: column; padding: 3px 6px 4px; }
@@ -149,18 +163,20 @@
 
   /* four-state legend + per-story status chips */
   .chip { display: inline-block; font-size: 7px; letter-spacing: .08em; padding: 1px 4px; border-radius: 2px; background: #1b1a17; color: #f7f3e9; font-weight: 700; }
-  .chip.reported { background: #5d574c; }
+  .chip.reported { background: #b3a894; color: #1b1a17; }
   .chip.claimed { background: #b02418; }
   .chip.pending { background: #fffdf7; color: #1b1a17; box-shadow: inset 0 0 0 1px #1b1a17; }
   .card .k { display: flex; justify-content: space-between; align-items: center; gap: 3px; }
-  .card .k .chip { font-size: 5.6px; letter-spacing: .05em; padding: 0 3px; line-height: 1.4; }
+  /* card status chips are 12px solid blocks at 8px type: the editing evidence, made visible at a glance */
+  .card .k .chip { font-size: 8px; letter-spacing: .02em; padding: 0 4px; height: 12px; line-height: 12px; border-radius: 1.5px; }
+  /* legend folded to two rows: state + meaning, two per row, note underneath */
   .legend {
-    margin-top: auto; padding-top: 4px; border-top: 1px dotted #b9b1a0;
-    font-size: 6.6px; line-height: 1.2; color: #3b372f;
-    display: grid; grid-template-columns: repeat(4, auto 1fr); gap: 2px 5px; align-items: center;
+    margin-top: auto; padding-top: 2px; border-top: 1px dotted #b9b1a0;
+    font-size: 8px; line-height: 1.15; color: #3b372f;
+    display: grid; grid-template-columns: repeat(2, auto 1fr); gap: 2px 6px; align-items: center;
   }
-  .legend .note { grid-column: 1 / -1; margin-top: 2px; color: #6b6257; }
-  .legend .chip { font-size: 5.6px; letter-spacing: .05em; padding: 0 3px; line-height: 1.4; }
+  .legend .note { grid-column: 1 / -1; margin-top: 1px; color: #6b6257; }
+  .legend .chip { font-size: 8px; letter-spacing: .02em; padding: 0 4px; height: 12px; line-height: 12px; border-radius: 1.5px; }
 </style>
 </head>
 <body>
@@ -176,14 +192,18 @@
     <p class="dek">COP31 ends without a deal · Iran strikes Bahrain as the Hormuz standoff deepens · Poland names Russian missiles · Democrats take the House</p>
   </div>
 
-  <div class="regions">
-    <div class="region eu"><b>8</b><span>EUROPE</span></div>
-    <div class="region me"><b>8</b><span>MIDDLE EAST</span></div>
-    <div class="region am"><b>7</b><span>AMERICAS</span></div>
-    <div class="region as"><b>7</b><span>ASIA-PACIFIC</span></div>
-    <div class="region af"><b>4</b><span>AFRICA</span></div>
-    <div class="region oc"><b>3</b><span>OCEANIA</span></div>
-    <div class="region wo"><b>3</b><span>WORLD</span></div>
+  <div class="figs">
+    <!-- 40 STORIES and 7 REGIONS: the page's own counts, as printed in the topline.
+         258 HOUSE SEATS: story 5 ("Democrats win 258 House seats").
+         2 TANKERS MINED: story 2 ("two supertankers struck mines near Hormuz").
+         3 MISSILES: story 3 ("the three objects ... were Russian Kh-101 cruise missiles").
+         1.5°C TARGET: story 1 (Guterres: "the 1.5°C window is closing"). -->
+    <div class="fig wo"><b>40</b><span>STORIES</span></div>
+    <div class="fig wo"><b>7</b><span>REGIONS</span></div>
+    <div class="fig am"><b>258</b><span>HOUSE SEATS</span></div>
+    <div class="fig me"><b>2</b><span>TANKERS MINED</span></div>
+    <div class="fig eu"><b>3</b><span>MISSILES</span></div>
+    <div class="fig wo"><b>1.5°C</b><span>TARGET</span></div>
   </div>
 
   <section class="leads">
@@ -547,7 +567,7 @@
       </div>
     </div>
     <div class="panel map">
-      <h5><span>WHERE IT HAPPENED</span><em>14 OF 40 STORIES · APPROX.</em></h5>
+      <h5><span>WHERE IT HAPPENED</span><em>PINS = STORY NUMBERS · 1–40</em></h5>
       <svg class="world" viewBox="0 0 420 118" role="img" aria-label="Simplified world map with fourteen numbered story locations">
         <g class="land" transform="translate(0,-5.9) scale(1,1.1332)">
           <path d="M14 11.3 L35 6.9 L70 6.9 L93 4.3 L117 4.3 L140 8.7 L149 13.9 L146 24.3 L134 28.6 L128 31.2 L123 37.3 L115.5 46 L105 42.5 L96.8 45.1 L87.5 50.3 L75.8 41.6 L64.2 33 L65.3 26 L52.5 17.4 L35 15.6 L16.3 15.6 Z"/>
