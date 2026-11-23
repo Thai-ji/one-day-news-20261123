@@ -54,23 +54,40 @@
   .fig b { font-family: Georgia, "Times New Roman", serif; font-size: 24px; line-height: 1; letter-spacing: -1px; }
   .fig b.hi { font-size: 34px; }
   .fig span { font-size: 7px; line-height: 1.1; letter-spacing: .12em; font-weight: 700; }
-  /* the region split printed as seven countable numbers, not a colour bar: the same 40 stories
-     as 8+8+7+7+4+3+3, so a reader can add them to 40 and count seven regions. The digits are
-     white because the cell is dark grey — every region colour except the beige falls below 4.5:1
-     on #4a4a4a (measured 2.2–3.6:1), so the region colour is kept as the 2px block under each
-     number instead, in the same order the map dots use. Absolute, so it cannot move the 46px band.
-     Type: 24px with zero tracking and a 5px gap. 28px with -1.1px tracking left the digits 0.9px
-     apart, which reads as one seven-digit number; 24px is the size the four story figures run at.
-     Scaled to the 640 width a thumbnail is read at, the six gaps measure 4–5 blank pixel columns
-     each, so each digit stays countable. The band's 7 digits end at 338.84 against the cell's
-     343.66 right edge — inside the cell, no overlap with US HOUSE SEATS. */
-  .fig .dist { position: absolute; left: 27px; right: 3px; top: 2.5px;
-    display: flex; align-items: flex-start; gap: 5px;
+  /* the region split printed as seven named, countable numbers, not a colour bar: the same 40
+     stories as EU 8 / ME 8 / AM 7 / AP 7 / AF 4 / OC 3 / W 3, so a reader can add them to 40,
+     count seven regions, AND check which number is which region. Unnamed digits only proved
+     that some seven-way split exists; the abbreviation is what makes the split verifiable
+     rather than decorative. The digits are white because the cell is dark grey — every region
+     colour except the beige falls below 4.5:1 on #4a4a4a (measured 2.2–3.6:1), so the region
+     colour is kept as the 2px block under each number instead, in the same order the map dots
+     use. Absolute, so it cannot move the 46px band.
+     Type, measured in the rendered page: 18px digits with a 12px abbreviation above each. The
+     abbreviation is taken out of flow and centred over its digit, so it cannot widen the row;
+     the flex row is space-between, so the digits spread across the cell and the labels keep a
+     3.2–6.3px gutter instead of running together (a fixed 6px gap left only 1.0–2.9px between
+     labels, which merged at 640). 18px is not a preference, it is the ceiling: the stack is
+     12 label + 18 digit + 1 + 2 colour block = 33px, and the cell's own "REGIONS" word starts at
+     y156.34, so 19px or more would print the digits into it. Scaled to the 640 width a
+     thumbnail is read at, the labels measure 7.5px tall and stay legible while the digits stay
+     countable — at 10px the labels were 6px and read as mush. */
+  .fig .dist { position: absolute; left: 27px; right: 3px; top: 0;
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 0;
     border-left: 2px solid rgba(255,255,255,.55); padding-left: 4px; }
   .fig .dist i {
+    position: relative; padding-top: 12px;
     display: flex; flex-direction: column; align-items: center; gap: 0;
-    font-style: normal; font-weight: 700; font-size: 24px; line-height: 1;
+    font-style: normal; font-weight: 700; font-size: 18px; line-height: 1;
     letter-spacing: 0; color: #fffdf7;
+  }
+  /* the region name, one line above its count. 12px is the smallest size whose two-letter label
+     still resolves after the page is scaled to 640 (~7.5px tall); the negative tracking pulls
+     each label back under its own digit so the gutters stay open. */
+  .fig .dist i em {
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    white-space: nowrap;
+    font-style: normal; font-weight: 700; font-size: 12px; line-height: 1;
+    letter-spacing: -.09em; color: #fffdf7;
   }
   .fig .dist i::after { content: ""; width: 12px; height: 2px; background: var(--dc); margin-top: 1px; }
   .fig .dist .d1 { --dc: #6fa287; }
@@ -237,7 +254,7 @@
          80% MINIMUM MARGIN: story 12 ("Three exchanges lower it from 100%").
          1.5°C TARGET: story 1 (Guterres: "the 1.5°C window is closing"). -->
     <div class="fig wo"><b class="hi">40</b><span>STORIES</span></div>
-    <div class="fig wo"><b class="hi">7</b><span>REGIONS</span><div class="dist" aria-hidden="true"><i class="d1">8</i><i class="d2">8</i><i class="d3">7</i><i class="d4">7</i><i class="d5">4</i><i class="d6">3</i><i class="d7">3</i></div></div>
+    <div class="fig wo"><b class="hi">7</b><span>REGIONS</span><div class="dist" aria-hidden="true"><i class="d1"><em>EU</em>8</i><i class="d2"><em>ME</em>8</i><i class="d3"><em>AM</em>7</i><i class="d4"><em>AP</em>7</i><i class="d5"><em>AF</em>4</i><i class="d6"><em>OC</em>3</i><i class="d7"><em>W</em>3</i></div></div>
     <div class="fig am"><b>258</b><span>US HOUSE SEATS</span></div>
     <div class="fig me"><b>2</b><span>KILLED IN GAZA</span></div>
     <div class="fig as"><b>80%</b><span>MINIMUM MARGIN</span></div>
