@@ -38,10 +38,12 @@
   /* hard-figures strip: six figures, each one already printed in a story below (see HTML comments).
      The strip is a hierarchy, not six equals: 40 stories and 7 regions run at 34px (the breadth
      claim, and the first thing a reader should meet), the four story figures at 24px — the same
-     size as the lead headlines. 46px tall: 3+1.5 borders leave 42px, and 34px number + 7px
-     label measure 41.7px in the rendered page. */
+     size as the lead headlines. The REGIONS cell takes 2.26fr because its seven-segment band has
+     to hold two-letter labels inside a 3-story segment (see the .dist note below); the other five
+     stay at 1fr. 46px tall: 3+1.5 borders leave 42px, and 34px number + 7px label measure 41.7px
+     in the rendered page. */
   .figs {
-    display: grid; grid-template-columns: repeat(6, 1fr);
+    display: grid; grid-template-columns: 1fr 2.26fr 1fr 1fr 1fr 1fr;
     border-top: 3px solid #1b1a17; border-bottom: 1.5px solid #1b1a17;
     height: 46px; background: #fffdf7;
   }
@@ -54,49 +56,49 @@
   .fig b { font-family: Georgia, "Times New Roman", serif; font-size: 24px; line-height: 1; letter-spacing: -1px; }
   .fig b.hi { font-size: 34px; }
   .fig span { font-size: 7px; line-height: 1.1; letter-spacing: .12em; font-weight: 700; }
-  /* the region split printed as seven named, countable numbers, not a colour bar: the same 40
-     stories as EU 8 / ME 8 / AM 7 / AP 7 / AF 4 / OC 3 / W 3, so a reader can add them to 40,
-     count seven regions, AND check which number is which region. Unnamed digits only proved
-     that some seven-way split exists; the abbreviation is what makes the split verifiable
-     rather than decorative. The digits are white because the cell is dark grey — every region
-     colour except the beige falls below 4.5:1 on #4a4a4a (measured 2.2–3.6:1), so the region
-     colour is kept as the 2px block under each number instead, in the same order the map dots
-     use. Absolute, so it cannot move the 46px band.
-     Type, measured in the rendered page: 18px digits with a 12px abbreviation above each. The
-     abbreviation is taken out of flow and centred over its digit, so it cannot widen the row;
-     the flex row is space-between, so the digits spread across the cell and the labels keep a
-     3.2–6.3px gutter instead of running together (a fixed 6px gap left only 1.0–2.9px between
-     labels, which merged at 640). 18px is not a preference, it is the ceiling: the stack is
-     12 label + 18 digit + 1 + 2 colour block = 33px, and the cell's own "REGIONS" word starts at
-     y156.34, so 19px or more would print the digits into it. Scaled to the 640 width a
-     thumbnail is read at, the labels measure 7.5px tall and stay legible while the digits stay
-     countable — at 10px the labels were 6px and read as mush. */
-  .fig .dist { position: absolute; left: 27px; right: 3px; top: 0;
-    display: flex; align-items: flex-start; justify-content: space-between; gap: 0;
-    border-left: 2px solid rgba(255,255,255,.55); padding-left: 4px; }
+  /* the region split drawn as a proportional colour band. Seven segments, each as wide as its
+     own count — EU 8, ME 8, AM 7, AS 7, AF 4, OC 3, WD 3 — and each segment carries its region
+     abbreviation and its count inside its own colour. What this buys over the seven equal-width
+     digits of v11/v12: width survives a thumbnail where type does not. At the 300px view the
+     seven segments still read as seven shares of one bar, whereas seven equal cells plus a row
+     of 3px labels read as nothing. The colours are the page's own region colours — the same
+     greens, reds and blues the section heads and the map dots use — so the band joins that key
+     instead of being a separate swatch row.
+     Geometry, measured in the rendered page: a two-letter label at the 12px floor (16.39px for
+     "WD" in Arial Narrow) cannot sit inside a 3-story segment in a 1fr cell, so this one cell is
+     widened to 2.26fr — 308.81px against 136.66px for the other five. That gives a band
+     256.81px wide (x200.63→457.44), one story = 6.42px, the two 3-story segments 19.27px, so
+     "WD" keeps 1.44px inside each edge and "OC"/"WD" keep a 3.68px gap. All seven labels sit on
+     one baseline at the top of the band and the seven counts share one baseline at the foot, so
+     the row still adds up left to right. Nothing is set below 12px: at 640 that is 7.5px, the
+     size the C11 review measured as still legible, where 10px read as mush. The other five cells
+     were re-measured after the re-proportion: every caption and number still sets on one line
+     with at least 52px of slack ("MINIMUM MARGIN" is the tightest), and no cell is pushed out. */
+  .fig .dist { position: absolute; left: 47px; right: 4px; top: 0; bottom: 0;
+    display: flex; align-items: stretch; }
   .fig .dist i {
-    position: relative; padding-top: 12px;
-    display: flex; flex-direction: column; align-items: center; gap: 0;
-    font-style: normal; font-weight: 700; font-size: 18px; line-height: 1;
-    letter-spacing: 0; color: #fffdf7;
+    flex: 1 0 0; position: relative;
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+    padding-bottom: 1px; min-width: 0;
+    font-style: normal; font-weight: 700; line-height: 1;
+    letter-spacing: 0; color: #fffdf7; background: var(--dc);
+    box-shadow: inset 1px 0 0 rgba(255,253,247,.28);
   }
-  /* the region name, one line above its count. 12px is the smallest size whose two-letter label
-     still resolves after the page is scaled to 640 (~7.5px tall); the negative tracking pulls
-     each label back under its own digit so the gutters stay open. */
+  .fig .dist i:first-child { box-shadow: none; }
   .fig .dist i em {
     position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-    white-space: nowrap;
+    font-family: "Arial Narrow", "Helvetica Neue Condensed", Arial, sans-serif;
     font-style: normal; font-weight: 700; font-size: 12px; line-height: 1;
-    letter-spacing: -.09em; color: #fffdf7;
+    letter-spacing: 0; white-space: nowrap;
   }
-  .fig .dist i::after { content: ""; width: 12px; height: 2px; background: var(--dc); margin-top: 1px; }
-  .fig .dist .d1 { --dc: #6fa287; }
-  .fig .dist .d2 { --dc: #d4553f; }
-  .fig .dist .d3 { --dc: #6b9bc9; }
-  .fig .dist .d4 { --dc: #d29a4a; }
-  .fig .dist .d5 { --dc: #9a7cb8; }
-  .fig .dist .d6 { --dc: #b08a5e; }
-  .fig .dist .d7 { --dc: #bdb39d; }
+  .fig .dist i span { font-size: 15px; line-height: 1; letter-spacing: 0; font-weight: 700; }
+  .fig .dist .d1 { --dc: #2c6a4d; flex-grow: 8; }
+  .fig .dist .d2 { --dc: #b02418; flex-grow: 8; }
+  .fig .dist .d3 { --dc: #1e4a74; flex-grow: 7; }
+  .fig .dist .d4 { --dc: #9c5f16; flex-grow: 7; }
+  .fig .dist .d5 { --dc: #5a3a76; flex-grow: 4; }
+  .fig .dist .d6 { --dc: #7a5230; flex-grow: 3; }
+  .fig .dist .d7 { --dc: #7a7466; flex-grow: 3; }
   .eu { --c: #2c6a4d; } .me { --c: #b02418; } .am { --c: #1e4a74; }
   .as { --c: #9c5f16; } .af { --c: #5a3a76; } .oc { --c: #7a5230; } .wo { --c: #4a4a4a; }
 
@@ -254,7 +256,7 @@
          80% MINIMUM MARGIN: story 12 ("Three exchanges lower it from 100%").
          1.5°C TARGET: story 1 (Guterres: "the 1.5°C window is closing"). -->
     <div class="fig wo"><b class="hi">40</b><span>STORIES</span></div>
-    <div class="fig wo"><b class="hi">7</b><span>REGIONS</span><div class="dist" aria-hidden="true"><i class="d1"><em>EU</em>8</i><i class="d2"><em>ME</em>8</i><i class="d3"><em>AM</em>7</i><i class="d4"><em>AP</em>7</i><i class="d5"><em>AF</em>4</i><i class="d6"><em>OC</em>3</i><i class="d7"><em>W</em>3</i></div></div>
+    <div class="fig wo"><b class="hi">7</b><span>REGIONS</span><div class="dist" aria-hidden="true"><i class="d1"><em>EU</em><span>8</span></i><i class="d2"><em>ME</em><span>8</span></i><i class="d3"><em>AM</em><span>7</span></i><i class="d4"><em>AS</em><span>7</span></i><i class="d5"><em>AF</em><span>4</span></i><i class="d6"><em>OC</em><span>3</span></i><i class="d7"><em>WD</em><span>3</span></i></div></div>
     <div class="fig am"><b>258</b><span>US HOUSE SEATS</span></div>
     <div class="fig me"><b>2</b><span>KILLED IN GAZA</span></div>
     <div class="fig as"><b>80%</b><span>MINIMUM MARGIN</span></div>
