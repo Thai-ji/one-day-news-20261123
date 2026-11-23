@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The World Daily — Monday, 23 November 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1024px; height: 1024px; overflow: hidden; }
+  body {
+    background: #f7f4ea;
+    color: #17140e;
+    font-family: Georgia, "Times New Roman", "SimSun", serif;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 30px 20px 30px;
+  }
+
+  /* ---------- masthead ---------- */
+  .mast { flex: 0 0 auto; }
+  .topbar {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 11px; letter-spacing: 1.6px; color: #6b6555;
+    border-bottom: 1px solid #2a2620; padding-bottom: 5px; text-transform: uppercase;
+  }
+  .name {
+    text-align: center; font-size: 50px; font-weight: 700; letter-spacing: 6px;
+    padding: 9px 0 5px;
+  }
+  .date {
+    text-align: center; font-size: 27px; font-weight: 700; letter-spacing: 2.5px;
+    padding: 1px 0 3px;
+  }
+  .sub {
+    text-align: center; font-size: 11.5px; letter-spacing: 3px; color: #5c5646;
+    padding: 3px 0 7px; text-transform: uppercase;
+  }
+  .dblrule { border-top: 3px solid #17140e; border-bottom: 1px solid #17140e; height: 5px; }
+
+  /* ---------- lead story ---------- */
+  .lead { display: flex; gap: 24px; padding: 13px 0 12px; border-bottom: 2px solid #17140e; }
+  .lead-art { width: 292px; flex: 0 0 292px; }
+  .lead-text { flex: 1; min-width: 0; }
+  .kicker {
+    font-size: 12.5px; font-weight: 700; letter-spacing: 2px; color: #a5341f;
+    text-transform: uppercase; margin-bottom: 3px;
+  }
+  .lead-head { font-size: 33px; font-weight: 700; line-height: 1.12; margin-bottom: 7px; }
+  .lead-sum { font-size: 14.5px; line-height: 1.38; color: #3a3527; }
+
+  /* ---------- two-column story grid ---------- */
+  .grid { display: flex; flex: 1; min-height: 0; padding-top: 11px; }
+  .col { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+  .col + .col { border-left: 1px solid #c9c1ad; padding-left: 22px; }
+  .story { display: flex; gap: 14px; padding: 8px 0; border-bottom: 1px solid #ddd5c2; flex: 1; align-items: center; }
+  .story:last-child { border-bottom: none; }
+  .story .ico { width: 60px; height: 60px; flex: 0 0 60px; }
+  .story .txt { flex: 1; min-width: 0; }
+  .story .head { font-size: 23px; font-weight: 700; line-height: 1.12; margin: 0 0 3px; }
+  .story .sum { font-size: 13px; line-height: 1.32; color: #4b4536; }
+
+  /* ---------- footer ---------- */
+  .foot { flex: 0 0 auto; }
+  .foot .rule { border-top: 3px solid #17140e; border-bottom: 1px solid #17140e; height: 5px; margin-bottom: 8px; }
+  .src { font-size: 11px; color: #6b6555; letter-spacing: 0.3px; }
+</style>
+</head>
+<body>
+
+  <header class="mast">
+    <div class="topbar">
+      <span>World Edition</span>
+      <span>Vol. XXIX &middot; November 2026</span>
+      <span>Late City Edition</span>
+    </div>
+    <div class="name">THE WORLD DAILY</div>
+    <div class="date">MONDAY, 23 NOVEMBER 2026</div>
+    <div class="sub">One Day, One Image &middot; The World&rsquo;s News in Thirteen Stories</div>
+    <div class="dblrule"></div>
+  </header>
+
+  <section class="lead">
+    <div class="lead-art">
+      <svg viewBox="0 0 292 190" fill="none" stroke="#17140e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="92" cy="92" r="58"/>
+        <ellipse cx="92" cy="92" rx="26" ry="58"/>
+        <line x1="34" y1="92" x2="150" y2="92"/>
+        <path d="M52 66 Q92 86 132 66"/>
+        <path d="M120 40 l14 18 l-9 13 l13 16 l-11 14" stroke-width="2.8"/>
+        <rect x="192" y="54" width="17" height="64" rx="8.5"/>
+        <circle cx="200.5" cy="128" r="11.5"/>
+        <line x1="200.5" y1="66" x2="200.5" y2="104"/>
+        <line x1="192" y1="77" x2="197" y2="77"/>
+        <line x1="192" y1="90" x2="197" y2="90"/>
+        <text x="218" y="96" font-size="16" fill="#17140e" stroke="none" font-family="Georgia, serif" font-weight="bold">1.5&deg;C</text>
+        <text x="218" y="114" font-size="11" fill="#6b6555" stroke="none" font-family="Georgia, serif">window</text>
+        <text x="218" y="130" font-size="11" fill="#6b6555" stroke="none" font-family="Georgia, serif">closing</text>
+      </svg>
+    </div>
+    <div class="lead-text">
+      <div class="kicker">Europe &middot; Global Climate</div>
+      <h1 class="lead-head">COP31 Climate Talks Collapse in Antalya</h1>
+      <p class="lead-sum">After 43 hours of overtime talks, the EU and others rejected a final draft that left out fossil fuels &mdash; the first breakdown of a UN climate summit since 2009. Guterres warns the 1.5&deg;C window is closing.</p>
+    </div>
+  </section>
+
+  <section class="grid">
+    <div class="col">
+
+      <article class="story">
+        <svg class="ico" viewBox="0 0 52 52" fill="none" stroke="#17140e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 34 h36 l-5 9 h-26 z"/>
+          <line x1="10" y1="34" x2="40" y2="34"/>
+          <rect x="30" y="23" width="9" height="11" rx="1"/>
+          <circle cx="24" cy="46.5" r="4.5"/>
+          <line x1="24" y1="41.5" x2="24" y2="43.5"/>
+          <line x1="29" y1="41.8" x2="28" y2="43.6"/>
+          <line x1="19" y1="41.8" x2="20" y2="43.6"/>
+          <path d="M4 50 q5 -3 10 0 t10 0 t10 0 t10 0"/>
+        </svg>
+        <div class="txt">
+          <div class="kicker">Middle East</div>
+          <div class="head">Iran Strikes Bahrain Site</div>
+          <div class="sum">Two tankers hit mines near Hormuz; US decision pending</div>
+        </div>
+      </article>
+
+      <article class="story">
+        <svg class="ico" viewBox="0 0 52 52" fill="none" stroke="#17140e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M26 6 l8 15 h-16 z"/>
+          <rect x="22" y="21" width="8" height="14" rx="2"/>
+          <path d="M22 31 l-8 9 M30 31 l8 9"/>
+          <line x1="26" y1="35" x2="26" y2="40"/>
+          <circle cx="38" cy="43.5" r="6" stroke-dasharray="3 3"/>
+          <line x1="38" y1="37" x2="38" y2="39.5"/>
+          <line x1="44" y1="43.5" x2="42" y2="43.5"/>
+          <line x1="32" y1="43.5" x2="34" y2="43.5"/>
+        </svg>
+        <div class="txt">
+          <div class="kicker">Europe</div>
+          <div class="head">Poland: Russian Missiles</div>
+          <div class="sum">Three fallen objects confirmed as cruise missiles</div>
+        </div>
+      </article>
+
+      <article class="story">
+        <svg class="ico" viewBox="0 0 52 52" fill="none" stroke="#17140e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 36 h40 l-6 8 h-28 z"/>
+          <rect x="16" y="26" width="15" height="10" rx="1"/>
+          <line x1="23.5" y1="26" x2="23.5" y2="18"/>
+          <line x1="20" y1="20" x2="27" y2="20"/>
+          <circle cx="26" cy="11" r="3"/>
+          <line x1="23" y1="13" x2="19" y2="16"/>
+          <line x1="29" y1="13" x2="33" y2="16"/>
+          <line x1="23" y1="9" x2="21" y2="6"/>
+          <line x1="29" y1="9" x2="31" y2="6"/>
+          <path d="M4 48 q5 -3 10 0 t10 0 t10 0 t10 0"/>
+        </svg>
+        <div class="txt">
+          <div class="kicker">Africa</div>
+          <div class="head">Warship Hit in Benghazi</div>
+          <div class="sum">Naval drone attack leaves 10 crew members injured</div>
+        </div>
+      </article>
+
+      <article class="story">
+        <svg class="ico" viewBox="0 0 52 52" fill="none" stroke="#17140e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="8" y="22" width="22" height="17" rx="1.5"/>
+          <path d="M12 31 l5 5 l8 -9"/>
+          <line x1="36" y1="8" x2="36" y2="38"/>
+          <path d="M36 9 h12 v8 h-12 z"/>
+          <line x1="36" y1="13.5" x2="48" y2="13.5"/>
+          <line x1="36" y1="17.5" x2="48" y2="17.5"/>
+        </svg>
+        <div class="txt">
+          <div class="kicker">America</div>
+          <div class="head">Democrats Take US House</div>
+          <div class="sum">Party wins House seats; Republicans lose both chambers</div>
+        </div>
+      </article>
+
+      <article class="story">
+        <svg class="ico" viewBox="0 0 52 52" fill="none" stroke="#17140e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="26" cy="24" r="15"/>
+          <circle cx="26" cy="24" r="8"/>
+          <line x1="26" y1="7" x2="26" y2="12"/>
+          <line x1="26" y1="36" x2="26" y2="41"/>
+          <line x1="9" y1="24" x2="14" y2="24"/>
+          <line x1="38" y1="24" x2="43" y2="24"/>
+          <path d="M12 44 l9 -11 l-5 -1 l3 8 z"/>
+        </svg>
+        <div class="txt">
+          <div class="kicker">Middle East</div>
+          <div class="head">Netanyahu Weighs Iran Strike</div>
+          <div class="sum">Plan considered without US approval, intel warns of spillover</div>
+        </div>
+      </article>
+
+      <article class="story">
+        <svg class="ico" viewBox="0 0 52 52" fill="none" stroke="#17140e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="8" x2="12" y2="42"/>
+          <path d="M12 9 h10 v7 h-10 z"/>
+          <line x1="40" y1="8" x2="40" y2="42"/>
+          <path d="M40 9 h10 v7 h-10 z"/>
+          <path d="M14 42 c7 6 21 6 28 0"/>
+          <circle cx="26" cy="37" r="2"/>
+        </svg>
+        <div class="txt">
+          <div class="kicker">Africa</div>
+          <div class="head">Kenya, Congo Restore Ties</div>
+          <div class="sum">Ruto and Tshisekedi agree to send ambassadors back</div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="col">
+
+      <article class="story">
+        <svg class="ico" viewBox="0 0 52 52" fill="none" stroke="#17140e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="15" cy="20" r="5"/>
+          <circle cx="37" cy="20" r="5"/>
+          <path d="M11 26 h8 M33 26 h8"/>
+          <path d="M9 31 l3 8 M40 31 l3 8"/>
+          <line x1="6" y1="42" x2="46" y2="42"/>
+          <line x1="10" y1="42" x2="10" y2="47"/>
+          <line x1="42" y1="42" x2="42" y2="47"/>
+          <circle cx="26" cy="36" r="1.6"/>
+          <circle cx="30" cy="34" r="1.6"/>
+        </svg>
+        <div class="txt">
+          <div class="kicker">Asia</div>
+          <div class="head">India&ndash;China Border Talks</div>
+          <div class="sum">Ten days of talks to ease Arunachal border tension</div>
+        </div>
+      </article>
+
+      <article class="story">
+        <svg class="ico" viewBox="0 0 52 52" fill="none" stroke="#17140e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="26" y1="12" x2="26" y2="30"/>
+          <path d="M15 21 l11 4 l-11 4 z"/>
+          <path d="M37 21 l-11 4 l11 4 z"/>
+          <path d="M22 30 l4 7 l8 -7 z"/>
+          <circle cx="41" cy="13" r="7"/>
+          <line x1="41" y1="13" x2="41" y2="9"/>
+          <line x1="41" y1="13" x2="44" y2="14"/>
+        </svg>
+        <div class="txt">
+          <div class="kicker">America</div>
+          <div class="head">Delta Delays 681 Flights</div>
+          <div class="sum">System fault disrupts Atlanta hub, hundreds of flights</div>
+        </div>
+      </article>
+
+      <article class="story">
+        <svg class="ico" viewBox="0 0 52 52" fill="none" stroke="#17140e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 33 h40 l-6 8 h-28 z"/>
+          <rect x="17" y="24" width="13" height="9" rx="1"/>
+          <path d="M20 24 q-5 -9 2 -13 q4 5 6 -4 q5 -7 9 -10 q-3 8 -5 15 z"/>
+          <path d="M31 24 q-3 -6 1 -9 q3 3 4 -2 q3 -4 6 -5 q-2 5 -3 10 z"/>
+          <path d="M4 46 q5 -3 10 0 t10 0 t10 0 t10 0"/>
+        </svg>
+        <div class="txt">
+          <div class="kicker">Europe</div>
+          <div class="head">Russian Ship Ablaze</div>
+          <div class="sum">Cargo vessel attacked and on fire off Finland</div>
+        </div>
+      </article>
+
+      <article class="story">
+        <svg class="ico" viewBox="0 0 52 52" fill="none" stroke="#17140e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="6" y1="44" x2="46" y2="44"/>
+          <polyline points="8,38 18,31 27,26 38,15"/>
+          <path d="M33 15 l8 -3 l-2 -8 z"/>
+          <line x1="6" y1="44" x2="6" y2="47"/>
+          <line x1="46" y1="44" x2="46" y2="47"/>
+        </svg>
+        <div class="txt">
+          <div class="kicker">Asia</div>
+          <div class="head">China Cuts Margin to 80%</div>
+          <div class="sum">Lower margin requirement aims to free funds for investors</div>
+        </div>
+      </article>
+
+      <article class="story">
+        <svg class="ico" viewBox="0 0 52 52" fill="none" stroke="#17140e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="26" cy="22" r="8"/>
+          <line x1="26" y1="2" x2="26" y2="7"/>
+          <line x1="26" y1="37" x2="26" y2="42"/>
+          <line x1="2" y1="22" x2="7" y2="22"/>
+          <line x1="45" y1="22" x2="50" y2="22"/>
+          <line x1="9" y1="9" x2="12.5" y2="12.5"/>
+          <line x1="42.5" y1="39.5" x2="46" y2="43"/>
+          <line x1="43" y1="9" x2="46" y2="12"/>
+          <line x1="9.5" y1="35.5" x2="13" y2="39"/>
+          <path d="M6 46 q4 -4 8 0 t8 0 t8 0 t8 0"/>
+          <path d="M6 50 q4 -4 8 0 t8 0 t8 0 t8 0"/>
+        </svg>
+        <div class="txt">
+          <div class="kicker">World</div>
+          <div class="head">Record El Ni&ntilde;o Strengthens</div>
+          <div class="sum">Warming event may peak in December, forecasters warn</div>
+        </div>
+      </article>
+
+      <article class="story">
+        <svg class="ico" viewBox="0 0 52 52" fill="none" stroke="#17140e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="22" y="9" width="8" height="4" rx="1"/>
+          <rect x="22" y="13" width="8" height="11"/>
+          <rect x="14" y="24" width="24" height="19" rx="3"/>
+          <line x1="14" y1="33" x2="38" y2="33"/>
+          <path d="M24 28 h4 M26 26 v4"/>
+        </svg>
+        <div class="txt">
+          <div class="kicker">South Asia</div>
+          <div class="head">India Fake-Liquor Deaths</div>
+          <div class="sum">11 dead and 180 hospitalised in 48-hour poisoning</div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="rule"></div>
+    <div class="src">Compiled from the day&rsquo;s reports &mdash; Xinhua &middot; Lianhe Zaobao &middot; CNA &middot; Middle East Eye &middot; Ynet &middot; The Hindu &middot; Economic Times. All events reported on 23 November 2026.</div>
+  </footer>
+
+</body>
+</html>
