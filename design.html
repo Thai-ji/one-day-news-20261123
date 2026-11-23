@@ -54,17 +54,27 @@
   .fig b { font-family: Georgia, "Times New Roman", serif; font-size: 24px; line-height: 1; letter-spacing: -1px; }
   .fig b.hi { font-size: 34px; }
   .fig span { font-size: 7px; line-height: 1.1; letter-spacing: .12em; font-weight: 700; }
-  /* seven-segment region bar: the same 40 stories split 8+8+7+7+4+3+3 by region, drawn flat
-     beside the 7. Absolute and unlabelled, so it costs no height and cannot be misread as text. */
-  .fig .dist { position: absolute; left: 30px; right: 8px; top: 13px; height: 7px; display: flex; gap: 1px; }
-  .fig .dist i { display: block; height: 100%; }
-  .fig .dist .d1 { flex: 8; background: #6fa287; }
-  .fig .dist .d2 { flex: 8; background: #d4553f; }
-  .fig .dist .d3 { flex: 7; background: #6b9bc9; }
-  .fig .dist .d4 { flex: 7; background: #d29a4a; }
-  .fig .dist .d5 { flex: 4; background: #9a7cb8; }
-  .fig .dist .d6 { flex: 3; background: #b08a5e; }
-  .fig .dist .d7 { flex: 3; background: #cfc7b6; }
+  /* the region split printed as seven countable numbers, not a colour bar: the same 40 stories
+     as 8+8+7+7+4+3+3, so a reader can add them to 40 and count seven regions. The digits are
+     white because the cell is dark grey — every region colour except the beige falls below 4.5:1
+     on #4a4a4a (measured 2.2–3.6:1), so the region colour is kept as the 2px block under each
+     number instead, in the same order the map dots use. Absolute, so it cannot move the 46px band. */
+  .fig .dist { position: absolute; left: 33px; right: 8px; top: 2.5px;
+    display: flex; align-items: flex-start; gap: 2px;
+    border-left: 2px solid rgba(255,255,255,.55); padding-left: 4px; }
+  .fig .dist i {
+    display: flex; flex-direction: column; align-items: center; gap: 0;
+    font-style: normal; font-weight: 700; font-size: 28px; line-height: 1;
+    letter-spacing: -1.1px; color: #fffdf7;
+  }
+  .fig .dist i::after { content: ""; width: 12px; height: 2px; background: var(--dc); margin-top: 1px; }
+  .fig .dist .d1 { --dc: #6fa287; }
+  .fig .dist .d2 { --dc: #d4553f; }
+  .fig .dist .d3 { --dc: #6b9bc9; }
+  .fig .dist .d4 { --dc: #d29a4a; }
+  .fig .dist .d5 { --dc: #9a7cb8; }
+  .fig .dist .d6 { --dc: #b08a5e; }
+  .fig .dist .d7 { --dc: #bdb39d; }
   .eu { --c: #2c6a4d; } .me { --c: #b02418; } .am { --c: #1e4a74; }
   .as { --c: #9c5f16; } .af { --c: #5a3a76; } .oc { --c: #7a5230; } .wo { --c: #4a4a4a; }
 
@@ -222,7 +232,7 @@
          80% MINIMUM MARGIN: story 12 ("Three exchanges lower it from 100%").
          1.5°C TARGET: story 1 (Guterres: "the 1.5°C window is closing"). -->
     <div class="fig wo"><b class="hi">40</b><span>STORIES</span></div>
-    <div class="fig wo"><b class="hi">7</b><span>REGIONS</span><div class="dist" aria-hidden="true"><i class="d1"></i><i class="d2"></i><i class="d3"></i><i class="d4"></i><i class="d5"></i><i class="d6"></i><i class="d7"></i></div></div>
+    <div class="fig wo"><b class="hi">7</b><span>REGIONS</span><div class="dist" aria-hidden="true"><i class="d1">8</i><i class="d2">8</i><i class="d3">7</i><i class="d4">7</i><i class="d5">4</i><i class="d6">3</i><i class="d7">3</i></div></div>
     <div class="fig am"><b>258</b><span>US HOUSE SEATS</span></div>
     <div class="fig me"><b>2</b><span>KILLED IN GAZA</span></div>
     <div class="fig as"><b>80%</b><span>MINIMUM MARGIN</span></div>
@@ -371,11 +381,14 @@
         <rect width="54" height="40" fill="#e6dccd"/>
         <path d="M0 33h54v7H0z" fill="#d8cba9"/>
         <path d="M4 33h46" stroke="#8a7d5e" stroke-width=".9"/>
-        <path d="M6 6h42a2.4 2.4 0 0 1 2.4 2.4v16.2A2.4 2.4 0 0 1 48 27H20l-8 6v-6H6a2.4 2.4 0 0 1-2.4-2.4V8.4A2.4 2.4 0 0 1 6 6z" fill="#6b6257"/>
-        <path d="M27 6h21a2.4 2.4 0 0 1 2.4 2.4v16.2A2.4 2.4 0 0 1 48 27H27z" fill="#b02418"/>
-        <path d="M27 5.4 L23.4 11.8 L28.2 15 L22.9 20.2 L26.6 23.4 L23.4 28.6" stroke="#e6dccd" stroke-width="3.4" fill="none" stroke-linejoin="miter"/>
-        <path d="M11 12h9M11 18h13" stroke="#e6dccd" stroke-width="1.3"/>
-        <path d="M34 12h9M31 18h12" stroke="#f3dedb" stroke-width="1.3"/>
+        <!-- two speech bubbles, each with a tail, torn apart by a wide jagged tear: the tails say
+             "talks", the tear says "broke down" — the only two things readable at 36x27px. The
+             left bubble sits low so the 18px number tag does not eat it. -->
+        <path d="M9.4 13h15.2a2.4 2.4 0 0 1 2.4 2.4v9.2a2.4 2.4 0 0 1-2.4 2.4h-8.9l-2.6 4.2-2.6-4.2H9.4A2.4 2.4 0 0 1 7 24.6v-9.2A2.4 2.4 0 0 1 9.4 13z" fill="#6b6257"/>
+        <path d="M31 4.4h15.6a2.4 2.4 0 0 1 2.4 2.4v9.2a2.4 2.4 0 0 1-2.4 2.4h-4.5l-2.6 4.2-2.6-4.2H31a2.4 2.4 0 0 1-2.4-2.4V6.8A2.4 2.4 0 0 1 31 4.4z" fill="#b02418"/>
+        <path d="M11.6 17.6h9M11.6 21.4h11.5" stroke="#e6dccd" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M33.4 9h9M33.4 12.8h11.5" stroke="#f3dedb" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M30.6 3 28.1 8.4l2.3 3.5-2.2 3.6 2.3 3.5-2.2 3.6 2.3 3.5-2.2 3.6 2.1 3.2" stroke="#1b1a17" stroke-width="1.2" fill="none" stroke-linejoin="miter"/>
       </svg></div>
       <div>
         <div class="k"><span>MIDDLE EAST · POLITICS</span><span class="chip pending">PENDING</span></div>
@@ -579,7 +592,7 @@
       <div class="brief"><div class="n">37</div><div class="t">Verstappen wins a wild Las Vegas Grand Prix <span>— 35 lead changes, and Ferrari's Hamilton and Leclerc collide again.</span> <i>WORLD · SPORT · BBC Sport · Sky Sports</i></div></div>
       <div class="brief"><div class="n">38</div><div class="t">WA to make coercive control a stand-alone crime <span>— promised in Australia for 2027; stalking penalties rise.</span> <i>OCEANIA · ABC · WA Government</i></div></div>
       <div class="brief"><div class="n">39</div><div class="t">Burke slams One Nation's refugee plan <span>— cutting the intake from 20,000 to 2,000 would invite people-smuggling, he says.</span> <i>OCEANIA · SMH · AAP</i></div></div>
-      <div class="brief"><div class="n">40</div><div class="t">Labor's last sitting week of the year <span>— the PM admits talks are needed on key bills.</span></div></div>
+      <div class="brief"><div class="n">40</div><div class="t">Labor's last sitting week of the year <span>— the PM admits talks are needed on key bills.</span> <i>OCEANIA · ABC</i></div></div>
 
     </div>
   </section>
