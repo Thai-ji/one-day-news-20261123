@@ -62,13 +62,14 @@
   .lead.me .art { background: #0d1f2e; }
   .lead.eu .art { background: #2b3a2f; }
   .lead .art svg { display: block; width: 100%; height: 100%; }
+  /* the lead badge is a dateline, not a second copy of the figures band: those six numbers
+     already run across the top of the page, so the corner of each illustration carries the place */
   .badge {
     position: absolute; top: 5px; right: 5px; background: #1b1a17; color: #f7f3e9;
-    padding: 3px 6px 4px; border-radius: 2px; text-align: center; line-height: 1;
+    padding: 4px 6px 5px; border-radius: 2px; line-height: 1;
     box-shadow: 0 0 0 1px #f7f3e9;
   }
-  .badge b { display: block; font-family: Georgia, serif; font-size: 18px; font-weight: 700; letter-spacing: -.5px; }
-  .badge i { display: block; font-style: normal; font-size: 5.2px; letter-spacing: .12em; margin-top: 1px; }
+  .badge i { display: block; font-style: normal; font-size: 7px; letter-spacing: .14em; font-weight: 700; }
   .kicker {
     display: flex; justify-content: space-between; align-items: center;
     font-size: 8px; letter-spacing: .11em; font-weight: 700; margin: 2px 0 1px;
@@ -87,7 +88,7 @@
   /* plan C: the three lead headlines sit on a solid band over the foot of each illustration */
   .lead h2.over {
     position: absolute; left: 0; right: 0; bottom: 0; margin: 0;
-    padding: 6px 7px 7px; font-size: 23px; line-height: 1.08;
+    padding: 6px 7px 7px; font-size: 24px; line-height: 1.08;
     color: #f7f3e9; background: rgba(17,19,23,.87);
     text-shadow: 0 1px 1px rgba(0,0,0,.45);
   }
@@ -122,8 +123,12 @@
   }
   .briefs h4 em { font-style: normal; font-weight: 400; letter-spacing: .06em; color: #6b6257; }
   .brief-cols { columns: 2; column-gap: 16px; }
-  .brief { display: grid; grid-template-columns: 16px 1fr; gap: 2px; padding: 2.2px 0; border-bottom: 1px dotted #d3cbb9; break-inside: avoid; }
-  .brief .n { font-size: 7px; font-weight: 700; color: #8a8274; padding-top: 1px; }
+  /* numbered rail: 16–40 sit right-aligned in a 14px gutter with a hairline rule down the whole column,
+     so the briefs read as countable items instead of one grey block (no change to the body weight) */
+  .brief { display: grid; grid-template-columns: 14px 1fr; gap: 2px; padding: 2.2px 0; border-bottom: 1px dotted #d3cbb9; break-inside: avoid;
+    background-image: linear-gradient(to right, transparent 13.4px, #b9b1a0 13.4px, #b9b1a0 13.9px, transparent 13.9px);
+    background-repeat: no-repeat; background-size: 14px 100%; }
+  .brief .n { font-size: 7px; font-weight: 700; color: #8a8274; padding-top: 1px; text-align: right; padding-right: 2.5px; }
   .brief .n::after { content: "."; }
   .brief .t { font-size: 9px; line-height: 1.2; font-weight: 700; }
   /* the first rendered line is set heavy, so a brief reads as a dark run then light: a bold/regular
@@ -140,9 +145,9 @@
   /* DATE CHECK: the three "left out as earlier-day news" lines are the proof we are not rewriting
      yesterday, so they run at 10.5px with the dates in solid black; the panel pays for it with its own padding */
   .datecheck { display: flex; flex-direction: column; padding: 2px 6px 2px; }
-  .datecheck p { margin: 0; font-size: 7.6px; line-height: 1.26; color: #2b2823; }
+  .datecheck p { margin: 0; font-size: 8.5px; line-height: 1.26; color: #2b2823; }
   .datecheck b { font-weight: 700; color: #1b1a17; }
-  .datecheck ul { margin: 1px 0 0; padding-left: 11px; }
+  .datecheck ul { margin: 0; padding-left: 11px; }
   .datecheck li { font-size: 10.5px; line-height: 1.28; }
 
   /* numbered map: where the day's stories happened */
@@ -172,7 +177,7 @@
   .card .k .chip { font-size: 8px; letter-spacing: .02em; padding: 0 4px; height: 12px; line-height: 12px; border-radius: 1.5px; }
   /* legend folded to two rows: state + meaning, two per row, note underneath */
   .legend {
-    margin-top: auto; padding-top: 2px; border-top: 1px dotted #b9b1a0;
+    margin-top: auto; padding-top: 1px; border-top: 1px dotted #b9b1a0;
     font-size: 8px; line-height: 1.15; color: #3b372f;
     display: grid; grid-template-columns: repeat(2, auto 1fr); gap: 2px 6px; align-items: center;
   }
@@ -226,7 +231,7 @@
           <path d="M0 86h300" stroke="#2b3a47" stroke-width="1"/>
           <circle cx="150" cy="46" r="44" fill="none" stroke="#2b3a47" stroke-width=".6" stroke-dasharray="3 4"/>
         </svg>
-        <span class="badge"><b>1.5°C</b><i>TARGET</i></span>
+        <span class="badge"><i>ANTALYA</i></span>
         <h2 class="over">COP31 collapses without a deal</h2>
       </div>
       <div class="kicker"><span><b class="num">1</b>WORLD · CLIMATE</span><span class="chip">CONFIRMED</span></div>
@@ -256,8 +261,8 @@
           <path d="M128 36l10 8-13 2z" fill="#f0c04a"/>
           <circle cx="20" cy="12" r="3" fill="#f0c04a"/>
         </svg>
-        <span class="badge"><b>2</b><i>TANKERS</i></span>
-        <h2 class="over">Iran hits Bahrain; Hormuz standoff deepens</h2>
+        <span class="badge"><i>HORMUZ</i></span>
+        <h2 class="over">Iran hits Bahrain; Hormuz standoff</h2>
       </div>
       <div class="kicker"><span><b class="num">2</b>MIDDLE EAST · WAR</span><span class="chip claimed">CLAIMED</span></div>
       <p>A strike damaged a civilian industrial site in Bahrain, wounding two, one critically; the IRGC says it aimed at US positions. Iran's navy says two supertankers struck mines near Hormuz last week; Washington puts its own decision on a strike at least a week away.</p>
@@ -283,7 +288,7 @@
           <rect x="208" y="66" width="15" height="8" fill="#fff" stroke="#1a2438" stroke-width=".6"/>
           <rect x="208" y="74" width="15" height="4" fill="#b02418"/>
         </svg>
-        <span class="badge"><b>3</b><i>MISSILES</i></span>
+        <span class="badge"><i>S.E. POLAND</i></span>
         <h2 class="over">Poland: the three objects were Russian missiles</h2>
       </div>
       <div class="kicker"><span><b class="num">3</b>EUROPE · WAR</span><span class="chip">CONFIRMED</span></div>
@@ -568,7 +573,7 @@
       </div>
     </div>
     <div class="panel map">
-      <h5><span>WHERE IT HAPPENED</span><em>PINS = STORY NUMBERS · 1–40</em></h5>
+      <h5><span>WHERE IT HAPPENED</span><em>PINS = STORY NUMBERS (14/40)</em></h5>
       <svg class="world" viewBox="0 0 420 118" role="img" aria-label="Simplified world map with fourteen numbered story locations">
         <g class="land" transform="translate(0,-5.9) scale(1,1.1332)">
           <path d="M14 11.3 L35 6.9 L70 6.9 L93 4.3 L117 4.3 L140 8.7 L149 13.9 L146 24.3 L134 28.6 L128 31.2 L123 37.3 L115.5 46 L105 42.5 L96.8 45.1 L87.5 50.3 L75.8 41.6 L64.2 33 L65.3 26 L52.5 17.4 L35 15.6 L16.3 15.6 Z"/>
