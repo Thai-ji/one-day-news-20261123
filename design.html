@@ -38,18 +38,17 @@
   /* hard-figures strip: six figures, each one already printed in a story below (see HTML comments).
      The strip is a hierarchy, not six equals: 40 stories and 7 regions run at 34px (the breadth
      claim, and the first thing a reader should meet), the four story figures at 24px — the same
-     size as the lead headlines. The REGIONS cell takes 4.5fr because its seven-segment band has
+     size as the lead headlines. The REGIONS cell takes 2.26fr because its seven-segment band has
      to hold two-letter labels inside a 3-story segment (see the .dist note below); the other five
-     stay at 1fr. 56px tall: 3+1.5 borders leave 51.5px, enough for a 20px label over a 28px count.
-     The band is the one figure on this page that must still work at 300px, where type shrinks to
-     a third; the height and the cell width were both raised for that view alone. */
+     stay at 1fr. 46px tall: 3+1.5 borders leave 42px, and 34px number + 7px label measure 41.7px
+     in the rendered page. */
   .figs {
-    display: grid; grid-template-columns: 1fr 4.5fr 1fr 1fr 1fr 1fr;
+    display: grid; grid-template-columns: 1fr 3.2fr 1fr 1fr 1fr 1fr;
     border-top: 3px solid #1b1a17; border-bottom: 1.5px solid #1b1a17;
-    height: 56px; flex: 0 0 auto; background: #fffdf7;
+    height: 46px; background: #fffdf7;
   }
   .fig {
-    padding: 0 6px; display: flex; flex-direction: column; position: relative;
+    padding: 0 8px; display: flex; flex-direction: column; position: relative;
     justify-content: center; gap: 0; background: var(--c); color: #fffdf7;
     border-left: 1px solid rgba(255,255,255,.28);
   }
@@ -65,35 +64,34 @@
      of 3px labels read as nothing. The colours are the page's own region colours — the same
      greens, reds and blues the section heads and the map dots use — so the band joins that key
      instead of being a separate swatch row.
-     Geometry, measured in the rendered page: a two-letter label at 20px (27.33px for "WD" in
-     Arial Narrow) cannot sit inside a 3-story segment in a 1fr cell, so this one cell is widened
-     to 4.5fr — 469.91px against 104.41px for the other five. That gives a band 417.91px wide
-     (x168.41→586.31), one story = 10.45px, the two 3-story segments 31.34px, so "WD" keeps 2.0px
-     inside each edge and "OC"/"WD" keep a 5.38px gap. All seven labels sit on one baseline at the
-     top of the band and the seven counts share one baseline at the foot, so the row still adds up
-     left to right. The point of the size: at 300px the whole page scales by 0.293, and the band is
-     the one element that has to survive it — 20px labels land at 5.9px there, and the seven
-     segments still read as seven shares of one bar. The other five cells were re-measured after
-     the re-proportion: every caption and number still sets on one line with at least 50px of slack
-     ("MINIMUM MARGIN" is the tightest), and no cell is pushed out. */
+     Geometry, measured in the rendered page: a two-letter label at the 12px floor (16.39px for
+     "WD" in Arial Narrow) cannot sit inside a 3-story segment in a 1fr cell, so this one cell is
+     widened to 2.26fr — 308.81px against 136.66px for the other five. That gives a band
+     256.81px wide (x200.63→457.44), one story = 6.42px, the two 3-story segments 19.27px, so
+     "WD" keeps 1.44px inside each edge and "OC"/"WD" keep a 3.68px gap. All seven labels sit on
+     one baseline at the top of the band and the seven counts share one baseline at the foot, so
+     the row still adds up left to right. Nothing is set below 12px: at 640 that is 7.5px, the
+     size the C11 review measured as still legible, where 10px read as mush. The other five cells
+     were re-measured after the re-proportion: every caption and number still sets on one line
+     with at least 52px of slack ("MINIMUM MARGIN" is the tightest), and no cell is pushed out. */
   .fig .dist { position: absolute; left: 47px; right: 4px; top: 0; bottom: 0;
     display: flex; align-items: stretch; }
   .fig .dist i {
     flex: 1 0 0; position: relative;
     display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
-    padding-bottom: 2px; min-width: 0;
+    padding-bottom: 1px; min-width: 0;
     font-style: normal; font-weight: 700; line-height: 1;
     letter-spacing: 0; color: #fffdf7; background: var(--dc);
-    box-shadow: inset 1px 0 0 #f7f3e9, inset -1px 0 0 #f7f3e9;
+    box-shadow: inset 1px 0 0 rgba(255,253,247,.28);
   }
-  .fig .dist i:first-child { box-shadow: inset -1px 0 0 #f7f3e9; }
+  .fig .dist i:first-child { box-shadow: none; }
   .fig .dist i em {
-    position: absolute; top: 2px; left: 50%; transform: translateX(-50%);
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
     font-family: "Arial Narrow", "Helvetica Neue Condensed", Arial, sans-serif;
-    font-style: normal; font-weight: 700; font-size: 20px; line-height: 1;
+    font-style: normal; font-weight: 700; font-size: 12px; line-height: 1;
     letter-spacing: 0; white-space: nowrap;
   }
-  .fig .dist i span { font-size: 28px; line-height: 1; letter-spacing: 0; font-weight: 700; }
+  .fig .dist i span { font-size: 15px; line-height: 1; letter-spacing: 0; font-weight: 700; }
   .fig .dist .d1 { --dc: #2c6a4d; flex-grow: 8; }
   .fig .dist .d2 { --dc: #b02418; flex-grow: 8; }
   .fig .dist .d3 { --dc: #1e4a74; flex-grow: 7; }
